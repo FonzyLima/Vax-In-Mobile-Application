@@ -102,15 +102,15 @@ public class RegisterActivity extends AppCompatActivity {
                     Users user = new Users(name,username,email, phone);
 
                     Toast.makeText(RegisterActivity.this,"SUCCESS SA UNA",Toast.LENGTH_LONG).show();
-                    FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
+                    FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    Log.e("HELLO","WORKS HERE");
+
                                     if(task.isSuccessful()){
                                         Toast.makeText(RegisterActivity.this,"Success",Toast.LENGTH_LONG).show();
-//                                        Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
-//                                        startActivity(intent);
+                                        Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+                                        startActivity(intent);
                                     }
                                     else{
                                         Toast.makeText(RegisterActivity.this,"FAIL",Toast.LENGTH_LONG).show();
