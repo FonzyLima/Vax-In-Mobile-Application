@@ -100,12 +100,13 @@ public class RegisterActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Users user = new Users(name,username,email, phone);
-                    Log.e("HELLO","WORKS HERE");
+
                     Toast.makeText(RegisterActivity.this,"SUCCESS SA UNA",Toast.LENGTH_LONG).show();
                     FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
+                                    Log.e("HELLO","WORKS HERE");
                                     if(task.isSuccessful()){
                                         Toast.makeText(RegisterActivity.this,"Success",Toast.LENGTH_LONG).show();
 //                                        Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
@@ -123,5 +124,6 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
 }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "59614300365",
+    "project_id": "vax-in-60807",
+    "storage_bucket": "vax-in-60807.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:59614300365:android:bf135e29720656eddc0184",
+        "android_client_info": {
+          "package_name": "com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "59614300365-kv3lqva53dq676nrs2t2jbrssre8im6o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPQOmUagMCiO158YGyjCw9Pxw0SF3s0wg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "59614300365-kv3lqva53dq676nrs2t2jbrssre8im6o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
