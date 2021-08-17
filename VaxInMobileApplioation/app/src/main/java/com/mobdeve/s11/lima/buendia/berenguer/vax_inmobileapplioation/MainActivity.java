@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else {
-                    Toast.makeText(MainActivity.this,"LOGGED IN",Toast.LENGTH_LONG).show();   
+                    Toast.makeText(MainActivity.this,"LOGGED IN",Toast.LENGTH_LONG).show();
 
                 }
             }
