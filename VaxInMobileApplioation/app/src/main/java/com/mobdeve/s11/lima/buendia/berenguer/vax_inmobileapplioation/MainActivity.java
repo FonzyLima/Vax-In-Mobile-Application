@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -48,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
         this.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                userLogin();
+                     
             }
         });
 
@@ -83,7 +85,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+                    Log.e("WEW","SUCCESS NAMAN");
                     Toast.makeText(MainActivity.this,"LOGGED IN",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(MainActivity.this, Loggedin_user.class);
+                    startActivity(intent);
                 }
                 else {
                     Toast.makeText(MainActivity.this,"LOGGED IN",Toast.LENGTH_LONG).show();   
