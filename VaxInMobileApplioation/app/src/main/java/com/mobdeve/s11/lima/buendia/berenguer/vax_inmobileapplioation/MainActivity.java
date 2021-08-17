@@ -85,14 +85,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Log.e("WEW","SUCCESS NAMAN");
+
                     Toast.makeText(MainActivity.this,"LOGGED IN",Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(MainActivity.this, Loggedin_user.class);
                     startActivity(intent);
                 }
                 else {
                     Toast.makeText(MainActivity.this,"LOGGED IN",Toast.LENGTH_LONG).show();   
-
+                    Log.e("WEW","SUCCESS NAMAN");
                 }
             }
         });
