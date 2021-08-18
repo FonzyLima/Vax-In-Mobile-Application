@@ -2,7 +2,6 @@ package com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
-    private EditText etRegisterName, etRegisterUsername, etRegisterPhone, etRegisterEmail, etRegisterPassword, etRegisterConfirm;
+    private EditText etRegisterFirstName, etRegisterLastName, etRegisterPhone, etRegisterEmail, etRegisterPassword, etRegisterConfirm, etRegisterSex, etRegisterBday;
     private Button btnRegisterRegister;
 
     @Override
@@ -32,12 +31,14 @@ public class RegisterActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        etRegisterName = findViewById(R.id.et_register_name);
-        etRegisterUsername = findViewById(R.id.et_register_username);
+        etRegisterFirstName = findViewById(R.id.et_register_firstname);
+        etRegisterLastName = findViewById(R.id.et_register_lastname);
         etRegisterPhone = findViewById(R.id.et_register_phone);
         etRegisterEmail = findViewById(R.id.et_register_email);
         etRegisterPassword = findViewById(R.id.et_register_password);
         etRegisterConfirm = findViewById(R.id.et_register_confirm_password);
+        etRegisterSex = findViewById(R.id.et_register_sex);
+        etRegisterBday = findViewById(R.id.et_register_birthday);
 
         btnRegisterRegister = findViewById(R.id.btn_register_register);
 
@@ -50,24 +51,26 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void validateRegistration(){
-        String name, username, phone, email, password, confirmpass;
+        String firstname, lastname, phone, email, password, confirmpass, sex, bday;
 
-        name = etRegisterName.getText().toString().trim();
-        username = etRegisterUsername.getText().toString().trim();
+        firstname = etRegisterFirstName.getText().toString().trim();
+        lastname = etRegisterLastName.getText().toString().trim();
         phone = etRegisterPhone.getText().toString().trim();
         email = etRegisterEmail.getText().toString().trim();
         password = etRegisterPassword.getText().toString().trim();
         confirmpass = etRegisterConfirm.getText().toString().trim();
+        sex = etRegisterSex.getText().toString().trim();
+        bday = etRegisterBday.getText().toString().trim();
 
-        if(name.isEmpty()){
-            etRegisterName.setError("Please enter your name.");
-            etRegisterName.requestFocus();
+        if(firstname.isEmpty()){
+            etRegisterFirstName.setError("Please enter your name.");
+            etRegisterFirstName.requestFocus();
             return;
         }
 
-        if(username.isEmpty()){
-            etRegisterUsername.setError("Please enter a username.");
-            etRegisterUsername.requestFocus();
+        if(lastname.isEmpty()){
+            etRegisterLastName.setError("Please enter a username.");
+            etRegisterLastName.requestFocus();
             return;
         }
 
@@ -94,12 +97,21 @@ public class RegisterActivity extends AppCompatActivity {
             etRegisterConfirm.requestFocus();
             return;
         }
+        if(sex.isEmpty()){
+            etRegisterSex.setError("Please enter valid sex (M or F)");
+            etRegisterSex.requestFocus();
+        }
+        if(bday.isEmpty()){
+            etRegisterBday.setError("Please enter valid date");
+            etRegisterBday.requestFocus();
+        }
+
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Users user = new Users(name,username,email, phone);
+                    Users user = new Users(firstname,lastname,email, phone, sex,bday);
 
                     Toast.makeText(RegisterActivity.this,"SUCCESS SA UNA",Toast.LENGTH_LONG).show();
                     FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)

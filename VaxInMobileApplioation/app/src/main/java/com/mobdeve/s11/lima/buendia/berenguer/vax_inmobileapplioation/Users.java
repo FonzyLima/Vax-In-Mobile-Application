@@ -2,14 +2,21 @@ package com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation;
 
 public class Users {
 
-    public String name, username, email, phone;
+    public String firstname, lastname, email, phone, sex, bday;
+    public Boolean isAdmin, isRegistered, isFirstDose, isComplete;
 
     public Users(){}
 
-    public Users(String name, String username, String email, String phone){
-        this.name = name;
-        this.username = username;
+    public Users(String firstname, String lastname, String email, String phone, String sex, String bday){
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.email = email;
         this.phone = phone;
+        this.sex = sex;
+        this.bday = bday;
+        this.isAdmin = false;
+        this.isRegistered = false;
+        this.isFirstDose = false;
+        this.isComplete = false;
     }
 }

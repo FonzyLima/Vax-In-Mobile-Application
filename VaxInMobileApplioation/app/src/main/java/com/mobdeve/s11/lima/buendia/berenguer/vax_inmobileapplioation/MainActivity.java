@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         this.mAuth = FirebaseAuth.getInstance();
 
         this.etEmail = findViewById(R.id.et_email);
-        this.etUsername = findViewById(R.id.et_username);
         this.etPassword = findViewById(R.id.et_password);
 
         this.btnRegister = findViewById(R.id.btn_register);
