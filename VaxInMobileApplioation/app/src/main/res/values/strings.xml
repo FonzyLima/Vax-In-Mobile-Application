@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Vax-In Mobile Applioation</string>
+    <string name="tv_apptitle">Vax-In</string>
+    <string name="tv_apptitle2">Vax-In</string>
+    <string name="tv_login">Login</string>
 </resources>
