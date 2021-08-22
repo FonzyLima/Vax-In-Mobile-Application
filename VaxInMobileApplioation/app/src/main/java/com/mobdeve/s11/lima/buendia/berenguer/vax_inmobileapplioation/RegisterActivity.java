@@ -6,6 +6,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText etRegisterFirstName, etRegisterLastName, etRegisterPhone, etRegisterEmail, etRegisterPassword, etRegisterConfirm, etRegisterSex, etRegisterBday;
     private Button btnRegisterRegister;
     private TextView tvRegisterLogin;
+    private Spinner spinnerSex;
 
     @Override
     protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
@@ -40,7 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
         etRegisterEmail = findViewById(R.id.et_register_email);
         etRegisterPassword = findViewById(R.id.et_register_password);
         etRegisterConfirm = findViewById(R.id.et_register_confirm_password);
-        etRegisterSex = findViewById(R.id.spinner_register_sex);
+        spinnerSex = findViewById(R.id.spinner_register_sex);
         etRegisterBday = findViewById(R.id.et_register_birthday);
 
         btnRegisterRegister = findViewById(R.id.btn_register_register);
@@ -70,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
         email = etRegisterEmail.getText().toString().trim();
         password = etRegisterPassword.getText().toString().trim();
         confirmpass = etRegisterConfirm.getText().toString().trim();
-        sex = etRegisterSex.getText().toString().trim();
+        sex = spinnerSex.getSelectedItem().toString().trim();
         bday = etRegisterBday.getText().toString().trim();
 
         if(firstname.isEmpty()){
