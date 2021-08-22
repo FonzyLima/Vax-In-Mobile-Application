@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserVaccinationProfileActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="166dp"
+        tools:layout_editor_absoluteY="213dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_vaxprof_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="40dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Vaccination Profile"
+                android:textColor="#303F88"
+                android:textSize="34sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_personalinfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins"
+                android:text="Personal Information"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_title" />
+
+            <ImageView
+                android:id="@+id/iv_vaxprof_personalinfo_bg"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="40dp"
+                android:src="@drawable/blue_rectangle"
+                app:layout_constraintBottom_toBottomOf="@id/tv_vaxprof_personalinfo_priority"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_personalinfo"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_personalinfo_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Name:"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_personalinfo_bg"
+                app:layout_constraintTop_toTopOf="@id/iv_vaxprof_personalinfo_bg" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_personalinfo_birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Date of Birth:"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_personalinfo_bg"
+                app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_personalinfo_name_text" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_personalinfo_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Gender: "
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_personalinfo_bg"
+                app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_personalinfo_birthday_text" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_personalinfo_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Email:"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_personalinfo_bg"
+                app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_personalinfo_gender_text" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_personalinfo_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Contact Number: "
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_personalinfo_bg"
+                app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_personalinfo_email_text" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_personalinfo_priority"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Priority Group: "
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_vaxprof_personalinfo_bg"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_personalinfo_bg"
+                app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_personalinfo_phone_text"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_vaxprof_divider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="205dp"
+                app:layout_constraintGuide_percent=".47" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_personalinfo_priority_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Text"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_vaxprof_personalinfo_bg"
+                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
+                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_personalinfo_phone_text"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_personalinfo_birthday_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Text"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
+                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_personalinfo_name_text" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_personalinfo_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Text"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
+                app:layout_constraintTop_toTopOf="@id/iv_vaxprof_personalinfo_bg" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_personalinfo_phone_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Text"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
+                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_personalinfo_email_text" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_personalinfo_email_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Text"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
+                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_personalinfo_gender_text" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_personalinfo_gender_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Text"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
+                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_personalinfo_birthday_text" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/poppins"
+                android:text="Address"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_vaxprof_personalinfo_bg" />
+
+            <ImageView
+                android:id="@+id/iv_vaxprof_address_bg"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="40dp"
+                android:src="@drawable/blue_rectangle"
+                app:layout_constraintBottom_toBottomOf="@id/tv_vaxprof_address_number_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_address"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_address_region"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Region: "
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_address_bg"
+                app:layout_constraintTop_toTopOf="@id/iv_vaxprof_address_bg" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_address_province"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Province: "
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_address_bg"
+                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_region_text" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_address_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="City:"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_address_bg"
+                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_province_text" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_address_barangay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Barangay:"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_address_bg"
+                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_city_text" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_address_street"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Street:"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_address_bg"
+                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_barangay_text" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_address_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Unit/House No."
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_vaxprof_address_bg"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_address_bg"
+                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_street_text"
+                app:layout_constraintVertical_bias="0.0"
+                android:layout_marginTop="8dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_vaxprof_divider2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="194dp"
+                app:layout_constraintGuide_percent=".47" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_address_region_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Text"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
+                app:layout_constraintTop_toTopOf="@+id/iv_vaxprof_address_bg" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_address_province_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Text"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
+                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_region_text" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_address_city_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Text"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
+                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_province_text" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_address_barangay_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Text"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
+                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_city_text" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_address_street_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Text"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
+                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_barangay_text" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_address_number_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Text"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_vaxprof_address_bg"
+                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
+                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_street_text" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
