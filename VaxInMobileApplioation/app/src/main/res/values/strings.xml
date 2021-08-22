@@ -1,6 +1,26 @@
 <resources>
-    <string name="app_name">Vax-In Mobile Applioation</string>
+    <string name="app_name">Vax-In Mobile Application</string>
     <string name="tv_apptitle">Vax-In</string>
     <string name="tv_apptitle2">Vax-In</string>
     <string name="tv_login">Login</string>
+
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="prioritygroups_array">
+        <item>A1. Workers in Frontline Health Services</item>
+        <item>A2. All Senior Citizens</item>
+        <item>A3. Persons with Comorbidities</item>
+        <item>A4. Frontline personnel in essential sectors, including uniformed personnel</item>
+        <item>A5. Indigent Population</item>
+        <item>B1. Teachers, Social Workers</item>
+        <item>B2. Other Government Workers</item>
+        <item>B3. Other Essential Workers</item>
+        <item>B4. Socio-demographic groups at significantly higher risk other than senior citizens and poor population based on the NHTS-PR</item>
+        <item>B5. Overseas FIlipino Workers</item>
+        <item>B6. Other Remaining Workforce</item>
+        <item>C. Rest of the Filipino population not otherwise included in the above groups</item>
+    </string-array>
 </resources>

@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
         this.etEmail = findViewById(R.id.et_login_email);
         this.etPassword = findViewById(R.id.et_login_password);
-
         this.tvRegister = findViewById(R.id.tv_login_register);
         this.tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
