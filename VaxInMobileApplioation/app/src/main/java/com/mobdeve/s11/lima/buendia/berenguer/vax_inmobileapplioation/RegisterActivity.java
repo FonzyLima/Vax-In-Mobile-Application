@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -112,7 +113,14 @@ public class RegisterActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Users user = new Users(firstname,lastname,email, phone, sex,bday);
-
+                    mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            FirebaseUser currUser = FirebaseAuth.getInstance().getCurrentUser();
+                            currUser.sendEmailVerification();
+                            mAuth.signOut();
+                        }
+                    });
                     Toast.makeText(RegisterActivity.this,"SUCCESS SA UNA",Toast.LENGTH_LONG).show();
                     FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
