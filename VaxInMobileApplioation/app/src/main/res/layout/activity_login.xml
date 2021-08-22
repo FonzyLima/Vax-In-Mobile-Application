@@ -9,11 +9,11 @@
         android:id="@+id/iv_logo2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintBottom_toTopOf="@+id/gl_bot_logo"
+        app:layout_constraintEnd_toStartOf="@+id/gl_right_login"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/gl_left_login"
+        app:layout_constraintTop_toTopOf="@+id/gl_top_logo"
         app:srcCompat="@drawable/logo" />
 
     <TextView
@@ -25,39 +25,39 @@
         android:textColor="#303F88"
         android:textSize="38sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintEnd_toStartOf="@+id/gl_right_login"
         app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="@+id/gl_left_login"
         app:layout_constraintTop_toTopOf="@+id/iv_logo2"
         app:layout_constraintVertical_bias="0.369" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
+        android:id="@+id/gl_top_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.04" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
+        android:id="@+id/gl_bot_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.38" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.15" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
+        android:id="@+id/gl_right_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_left_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
 
     <LinearLayout
         android:id="@+id/ll_login"
@@ -65,42 +65,51 @@
         android:layout_height="0dp"
         android:background="@drawable/border"
         android:orientation="vertical"
+        android:padding="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_apptitle2"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:padding="0dp">
 
             <TextView
                 android:id="@+id/tv_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
-                android:layout_marginTop="40dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="@string/tv_login"
                 android:textColor="#303F88"
                 android:textSize="25sp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.016"
+                app:layout_constraintStart_toStartOf="@id/guideline4"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.07" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="24dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.503"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_login">
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/tv_login_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -109,7 +118,7 @@
                     android:textSize="13sp" />
 
                 <EditText
-                    android:id="@+id/et_email"
+                    android:id="@+id/et_login_email"
                     android:layout_width="278dp"
                     android:layout_height="35dp"
                     android:background="@drawable/et_borders"
@@ -121,14 +130,14 @@
                 android:id="@+id/linearLayout2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/tv_login_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -137,7 +146,7 @@
                     android:textSize="13sp" />
 
                 <EditText
-                    android:id="@+id/et_password"
+                    android:id="@+id/et_login_password"
                     android:layout_width="278dp"
                     android:layout_height="35dp"
                     android:background="@drawable/et_borders"
@@ -146,29 +155,48 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/btn_submit"
+                android:id="@+id/btn_login_login"
                 android:layout_width="278dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="#2C408D"
                 android:text="Login"
+                android:textStyle="normal"
+                app:cornerRadius="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
-            <Button
-                android:id="@+id/btn_register"
-                android:layout_width="136dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="6dp"
-                android:backgroundTint="#FFFFFF"
-                android:backgroundTintMode="screen"
-                android:text="Register"
+            <TextView
+                android:id="@+id/tv_noacc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="@font/poppins"
+                android:text="No Account?"
                 android:textColor="#000000"
-                android:textSize="10sp"
-                app:iconTint="#FFFFFF"
-                app:layout_constraintTop_toBottomOf="@+id/btn_submit"
-                tools:layout_editor_absoluteX="78dp" />
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline4"
+                app:layout_constraintTop_toBottomOf="@+id/btn_login_login"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tv_login_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Sign Up"
+                android:textColor="#000000"
+                android:textSize="13sp"
+                app:layout_constraintStart_toEndOf="@+id/tv_noacc"
+                app:layout_constraintTop_toBottomOf="@+id/btn_login_login" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

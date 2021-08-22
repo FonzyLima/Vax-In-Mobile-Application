@@ -38,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
         etRegisterEmail = findViewById(R.id.et_register_email);
         etRegisterPassword = findViewById(R.id.et_register_password);
         etRegisterConfirm = findViewById(R.id.et_register_confirm_password);
-        etRegisterSex = findViewById(R.id.et_register_sex);
+        etRegisterSex = findViewById(R.id.et_register_birthday);
         etRegisterBday = findViewById(R.id.et_register_birthday);
 
         btnRegisterRegister = findViewById(R.id.btn_register_register);
@@ -64,13 +64,13 @@ public class RegisterActivity extends AppCompatActivity {
         bday = etRegisterBday.getText().toString().trim();
 
         if(firstname.isEmpty()){
-            etRegisterFirstName.setError("Please enter your name.");
+            etRegisterFirstName.setError("Please enter your first name.");
             etRegisterFirstName.requestFocus();
             return;
         }
 
         if(lastname.isEmpty()){
-            etRegisterLastName.setError("Please enter a username.");
+            etRegisterLastName.setError("Please enter your last name.");
             etRegisterLastName.requestFocus();
             return;
         }
