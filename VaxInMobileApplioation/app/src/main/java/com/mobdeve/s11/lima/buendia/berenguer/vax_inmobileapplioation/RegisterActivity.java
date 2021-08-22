@@ -1,6 +1,7 @@
 package com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -22,9 +23,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
+//    public static final String REGISTER_SHARED_PREFS = "RegisteredSharedPrefs";
+//    public static final String REGISTER_FIRSTNAME_KEY = "RFirstNameKey";
+//    public static final String REGISTER_LASTNAME_KEY = "RLastNameKey";
     private FirebaseAuth mAuth;
 
-    private EditText etRegisterFirstName, etRegisterLastName, etRegisterPhone, etRegisterEmail, etRegisterPassword, etRegisterConfirm, etRegisterSex, etRegisterBday;
+    private EditText etRegisterFirstName, etRegisterLastName, etRegisterPhone, etRegisterEmail, etRegisterPassword, etRegisterConfirm, etRegisterBday;
     private Button btnRegisterRegister;
     private TextView tvRegisterLogin;
     private Spinner spinnerSex;
@@ -42,8 +46,9 @@ public class RegisterActivity extends AppCompatActivity {
         etRegisterEmail = findViewById(R.id.et_register_email);
         etRegisterPassword = findViewById(R.id.et_register_password);
         etRegisterConfirm = findViewById(R.id.et_register_confirm_password);
-        spinnerSex = findViewById(R.id.spinner_register_sex);
         etRegisterBday = findViewById(R.id.et_register_birthday);
+
+        spinnerSex = findViewById(R.id.spinner_register_sex);
 
         btnRegisterRegister = findViewById(R.id.btn_register_register);
         btnRegisterRegister.setOnClickListener(new View.OnClickListener() {
@@ -109,10 +114,6 @@ public class RegisterActivity extends AppCompatActivity {
             etRegisterConfirm.setError("Passwords do not match.");
             etRegisterConfirm.requestFocus();
             return;
-        }
-        if(sex.isEmpty()){
-            etRegisterSex.setError("Please enter valid sex (M or F)");
-            etRegisterSex.requestFocus();
         }
         if(bday.isEmpty()){
             etRegisterBday.setError("Please enter valid date");
