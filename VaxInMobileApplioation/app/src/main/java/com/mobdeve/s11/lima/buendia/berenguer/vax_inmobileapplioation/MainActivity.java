@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     FirebaseUser currUser = FirebaseAuth.getInstance().getCurrentUser();
                     if(currUser.isEmailVerified()){
                         Toast.makeText(MainActivity.this,"LOGGED IN",Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(MainActivity.this, Loggedin_user.class);
+                        Intent intent = new Intent(MainActivity.this, UserMainActivity.class);
                         startActivity(intent);
                     }
                     else{
