@@ -6,6 +6,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private EditText etRegisterFirstName, etRegisterLastName, etRegisterPhone, etRegisterEmail, etRegisterPassword, etRegisterConfirm, etRegisterSex, etRegisterBday;
     private Button btnRegisterRegister;
+    private TextView tvRegisterLogin;
 
     @Override
     protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
@@ -42,11 +44,19 @@ public class RegisterActivity extends AppCompatActivity {
         etRegisterBday = findViewById(R.id.et_register_birthday);
 
         btnRegisterRegister = findViewById(R.id.btn_register_register);
-
         btnRegisterRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 validateRegistration();
+            }
+        });
+
+        tvRegisterLogin = findViewById(R.id.tv_register_login);
+        tvRegisterLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }

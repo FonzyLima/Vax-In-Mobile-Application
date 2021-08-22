@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     private EditText etEmail, etPassword;
@@ -80,14 +81,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Log.e("WEW","SUCCESS NAMAN");
-                    Toast.makeText(MainActivity.this,"LOGGED IN",Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(MainActivity.this, Loggedin_user.class);
-                    startActivity(intent);
+                    FirebaseUser currUser = FirebaseAuth.getInstance().getCurrentUser();
+                    if(currUser.isEmailVerified()){
+                        Toast.makeText(MainActivity.this,"LOGGED IN",Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(MainActivity.this, Loggedin_user.class);
+                        startActivity(intent);
+                    }
+                    else{
+                        Toast.makeText(MainActivity.this,"Email not verified. Check your email",Toast.LENGTH_LONG).show();
+                    }
+
                 }
                 else {
-                    Toast.makeText(MainActivity.this,"LOGGED IN",Toast.LENGTH_LONG).show();
-
+                    Toast.makeText(MainActivity.this,"Log in credentials does not exist",Toast.LENGTH_LONG).show();
                 }
             }
         });
