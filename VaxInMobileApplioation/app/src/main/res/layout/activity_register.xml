@@ -275,16 +275,15 @@
                 app:layout_constraintStart_toStartOf="@+id/gl_register_middle"
                 app:layout_constraintTop_toBottomOf="@+id/et_register_phone" />
 
-            <EditText
-                android:id="@+id/et_register_sex"
+            <Spinner
+                android:id="@+id/spinner_register_sex"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/et_borders"
-                android:ems="10"
-                android:inputType="textShortMessage"
+                android:entries="@array/gender_array"
                 android:padding="8dp"
                 app:layout_constraintEnd_toStartOf="@+id/gl_register_right"
                 app:layout_constraintStart_toStartOf="@+id/gl_register_middle"
@@ -299,6 +298,7 @@
                 android:text="Sign Up"
                 android:textSize="20sp"
                 android:textStyle="normal"
+                app:cornerRadius="20dp"
                 app:layout_constraintEnd_toStartOf="@+id/gl_register_right"
                 app:layout_constraintStart_toStartOf="@+id/gl_register_left"
                 app:layout_constraintTop_toBottomOf="@+id/et_register_birthday" />

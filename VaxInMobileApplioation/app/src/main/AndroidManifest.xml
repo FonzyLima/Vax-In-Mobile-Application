@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation">
+    package="com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation" >
 
     <application
         android:allowBackup="true"
@@ -8,19 +8,28 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.VaxInMobileApplioation">
+        android:theme="@style/Theme.VaxInMobileApplioation" >
+        <activity
+            android:name=".UserRegisterVaccineActivity"
+            android:exported="true" />
+        <activity
+            android:name=".UserMainActivity"
+            android:exported="true" />
         <activity
             android:name=".Loggedin_user"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" android:usesCleartextTraffic="true">
+            android:exported="true"
+            android:usesCleartextTraffic="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
+        <activity
+            android:name=".RegisterActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
