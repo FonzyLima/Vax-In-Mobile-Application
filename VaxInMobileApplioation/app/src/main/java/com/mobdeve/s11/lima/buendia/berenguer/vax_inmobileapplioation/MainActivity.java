@@ -10,6 +10,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,8 +19,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText etEmail,etUsername, etPassword;
-    private Button btnLogin, btnRegister;
+    private EditText etEmail, etPassword;
+    private Button btnLogin;
+    private TextView tvRegister;
 
     private FirebaseAuth mAuth;
 
@@ -27,15 +29,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         this.mAuth = FirebaseAuth.getInstance();
 
-        this.etEmail = findViewById(R.id.et_email);
-        this.etPassword = findViewById(R.id.et_password);
+        this.etEmail = findViewById(R.id.et_login_email);
+        this.etPassword = findViewById(R.id.et_login_password);
 
-        this.btnRegister = findViewById(R.id.btn_register);
-        this.btnRegister.setOnClickListener(new View.OnClickListener() {
+        this.tvRegister = findViewById(R.id.tv_login_register);
+        this.tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,RegisterActivity.class);
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        this.btnLogin = findViewById(R.id.btn_submit);
+        this.btnLogin = findViewById(R.id.btn_login_login);
         this.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
         String email, username, password;
 
         email = etEmail.getText().toString().trim();
-        username = etUsername.getText().toString().trim();
         password = etPassword.getText().toString().trim();
 
         if(email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()){
@@ -67,11 +68,6 @@ public class MainActivity extends AppCompatActivity {
             etEmail.requestFocus();
             return;
             
-        }
-        if(username.isEmpty()){
-            etUsername.setError("Please enter valid username");
-            etUsername.requestFocus();
-            return;
         }
 
         if (password.isEmpty() || password.length() < 6)  {
