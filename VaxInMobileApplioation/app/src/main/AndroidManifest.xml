@@ -19,9 +19,6 @@
             android:name=".UserMainActivity"
             android:exported="true" />
         <activity
-            android:name=".Loggedin_user"
-            android:exported="true" />
-        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:usesCleartextTraffic="true">
