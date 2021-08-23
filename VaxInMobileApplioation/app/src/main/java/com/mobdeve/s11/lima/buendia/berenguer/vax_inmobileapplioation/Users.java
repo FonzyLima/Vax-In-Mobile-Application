@@ -3,7 +3,7 @@ package com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation;
 public class Users {
 
     public String firstname, lastname, email, phone, sex, bday;
-    public Boolean isAdmin, isRegistered, isFirstDose, isComplete;
+    public Boolean isAdmin, isRegistered, isFirstDose, isComplete, isScheduled;
 
     public Users(){}
 
