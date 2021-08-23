@@ -144,6 +144,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         Toast.makeText(RegisterActivity.this,"Success",Toast.LENGTH_LONG).show();
                                         Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
                                         startActivity(intent);
+                                        finish();
                                     }
                                     else{
                                         Toast.makeText(RegisterActivity.this,"FAIL",Toast.LENGTH_LONG).show();

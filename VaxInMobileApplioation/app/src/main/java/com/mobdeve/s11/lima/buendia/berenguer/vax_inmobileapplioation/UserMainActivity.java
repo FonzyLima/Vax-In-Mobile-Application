@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class UserMainActivity extends AppCompatActivity {
-    private ImageView ivProgressCircle, btnRegisVaccine, btnProfile;
+    private ImageView ivProgressCircle,ivTracker, btnRegisVaccine, btnProfile;
 
     private FirebaseAuth mAuth;
     private FirebaseUser currUser;
@@ -34,6 +34,7 @@ public class UserMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_main);
 
         ivProgressCircle = findViewById(R.id.iv_progress_circle);
+        ivTracker = findViewById(R.id.iv_tracker);
         btnRegisVaccine = findViewById(R.id.iv_registervax_bg);
         btnProfile = findViewById(R.id.iv_vaxprof_bg);
 
@@ -67,18 +68,27 @@ public class UserMainActivity extends AppCompatActivity {
                     boolean isRegistered = userProfile.isRegistered;
                     boolean isFirstDose = userProfile.isFirstDose;
                     boolean isComplete = userProfile.isComplete;
+                    boolean isScheduled = userProfile.isScheduled;
 
                     if(!isRegistered){
                         ivProgressCircle.setImageResource(R.drawable.progress_circle_0);
+                        ivTracker.setImageResource(R.drawable.tracker_0);
+                    }
+                    else if(!isScheduled){
+                        ivProgressCircle.setImageResource(R.drawable.progress_circle_1);
+                        ivTracker.setImageResource(R.drawable.tracker_1);
                     }
                     else if(!isFirstDose){
-                        ivProgressCircle.setImageResource(R.drawable.progress_circle_1);
+                        ivProgressCircle.setImageResource(R.drawable.progress_circle_2);
+                        ivTracker.setImageResource(R.drawable.tracker_2);
                     }
                     else if(!isComplete){
-                        ivProgressCircle.setImageResource(R.drawable.progress_circle_2);
+                        ivProgressCircle.setImageResource(R.drawable.progress_circle_3);
+                        ivTracker.setImageResource(R.drawable.tracker_3);
                     }
                     else{
-                        ivProgressCircle.setImageResource(R.drawable.progress_circle_3);
+                        ivProgressCircle.setImageResource(R.drawable.progress_circle_4);
+                        ivTracker.setImageResource(R.drawable.tracker_4);
                     }
                 }
             }

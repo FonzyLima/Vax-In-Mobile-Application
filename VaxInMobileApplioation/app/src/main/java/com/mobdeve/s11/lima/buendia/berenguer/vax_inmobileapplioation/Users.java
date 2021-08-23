@@ -16,6 +16,7 @@ public class Users {
         this.bday = bday;
         this.isAdmin = false;
         this.isRegistered = false;
+        this.isScheduled = false;
         this.isFirstDose = false;
         this.isComplete = false;
     }
