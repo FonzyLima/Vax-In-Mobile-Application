@@ -66,6 +66,16 @@
                 app:layout_constraintTop_toBottomOf="@+id/cv_scheduler"
                 app:lineHeight="20sp" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="80dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline5"
+                app:layout_constraintStart_toStartOf="@id/guideline3"
+                app:layout_constraintTop_toBottomOf="@id/tv_pending" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

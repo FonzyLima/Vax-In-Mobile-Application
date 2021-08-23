@@ -23,6 +23,7 @@
           android:layout_height="0dp"
           app:layout_constraintBottom_toBottomOf="@id/iv_progress_circle"
           app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent"
           app:srcCompat="@drawable/pink_rectangle" />
@@ -193,6 +194,16 @@
           app:layout_constraintEnd_toStartOf="@+id/iv_tracker"
           app:layout_constraintTop_toBottomOf="@+id/tv_tracker_1stdose"
           app:layout_constraintVertical_bias="0.0" />
+
+      <ImageView
+          android:id="@+id/iv_settings"
+          android:layout_width="36dp"
+          android:layout_height="36dp"
+          android:layout_marginTop="24dp"
+          android:layout_marginEnd="24dp"
+          app:layout_constraintEnd_toEndOf="@id/iv_pinkbg"
+          app:layout_constraintTop_toTopOf="@id/iv_pinkbg"
+          app:srcCompat="@drawable/settings_icon" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
   </ScrollView>
