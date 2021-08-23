@@ -3,6 +3,7 @@
     <string name="tv_apptitle">Vax-In</string>
     <string name="tv_apptitle2">Vax-In</string>
     <string name="tv_login">Login</string>
+    <string name="tv_pending">Pending <br></br> Applications</string>
 
     <string-array name="gender_array">
         <item>Male</item>
