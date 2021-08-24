@@ -26,7 +26,7 @@ import java.util.HashMap;
 
 public class UserRegisterVaccineActivity extends AppCompatActivity {
     private EditText etFName, etLName, etMName, etEmail, etNumber,
-                     etBday, etStreet, etBarangay, etCity;
+                     etBday, etHousenum, etStreet, etBarangay, etCity;
     private Spinner spPrioGroup, spSex;
     private Button btnRegisterVaccine;
 
@@ -48,6 +48,7 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
         etNumber = findViewById(R.id.et_rv_phone);
         etBday = findViewById(R.id.et_rv_birthday);
         spSex = findViewById(R.id.spinner_rv_gender);
+        etHousenum = findViewById(R.id.et_rv_addressnum);
         etStreet = findViewById(R.id.et_rv_street);
         etBarangay = findViewById(R.id.et_rv_barangay);
         etCity = findViewById(R.id.et_rv_city);
@@ -74,6 +75,7 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
                     etBday.setText(userProfile.bday);
                     etBday.setEnabled(false);
 
+
                 }
             }
 
@@ -95,7 +97,7 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
     }
 
     public void registerUserVaccine(){
-        String priority, fName, lName, mName, email, number, bday, sex, street, barangay, city;
+        String priority, fName, lName, mName, email, number, bday, sex, houseNum, street, barangay, city;
 
         priority = spPrioGroup.getSelectedItem().toString();
         fName = etFName.getText().toString().trim();
@@ -105,10 +107,16 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
         number = etNumber.getText().toString().trim();
         bday = etBday.getText().toString().trim();
         sex = spSex.getSelectedItem().toString();
+        houseNum = etHousenum.getText().toString().trim();
         street = etStreet.getText().toString().trim();
         barangay = etBarangay.getText().toString().trim();
         city = etCity.getText().toString().trim();
 
+        if(houseNum.isEmpty()){
+            etHousenum.setError("Please enter your house number");
+            etHousenum.requestFocus();
+            return;
+        }
         if(street.isEmpty()){
             etStreet.setError("Please enter your street");
             etStreet.requestFocus();
@@ -126,7 +134,12 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
         }
 
         HashMap hashMap = new HashMap();
+        hashMap.put("priority",priority);
         hashMap.put("isRegistered",true);
+        hashMap.put("houseNum",houseNum);
+        hashMap.put("street",street);
+        hashMap.put("barangay",barangay);
+        hashMap.put("city",city);
 
         currUser = FirebaseAuth.getInstance().getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("Users");
@@ -137,8 +150,8 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task task) {
                 if(task.isSuccessful()){
 
-                    RegisteredUsers registeredUser = new RegisteredUsers(priority,fName,lName,mName,email,number,bday,sex,street,barangay,city);
-                    FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("Registered Users")
+                    RegisteredUsers registeredUser = new RegisteredUsers(priority,fName,lName,mName,email,number,bday,sex,houseNum,street,barangay,city);
+                    FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("RegisteredUsers")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(registeredUser).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
