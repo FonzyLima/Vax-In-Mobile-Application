@@ -9,8 +9,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="213dp">
+        android:paddingBottom="0dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="45dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -255,43 +256,17 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/tv_vaxprof_address_region"
+                android:id="@+id/tv_vaxprof_address_city"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/poppins"
-                android:text="Region: "
-                android:textColor="#FFFFFF"
-                android:textSize="13sp"
-                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_address_bg"
-                app:layout_constraintTop_toTopOf="@id/iv_vaxprof_address_bg" />
-
-            <TextView
-                android:id="@+id/tv_vaxprof_address_province"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppins"
-                android:text="Province: "
-                android:textColor="#FFFFFF"
-                android:textSize="13sp"
-                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_address_bg"
-                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_region_text" />
-
-            <TextView
-                android:id="@+id/tv_vaxprof_address_city"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppins"
                 android:text="City:"
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="@id/iv_vaxprof_address_bg"
-                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_province_text" />
+                app:layout_constraintTop_toTopOf="@+id/iv_vaxprof_address_bg" />
 
             <TextView
                 android:id="@+id/tv_vaxprof_address_barangay"
@@ -324,6 +299,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/poppins"
                 android:text="Unit/House No."
@@ -332,19 +308,10 @@
                 app:layout_constraintBottom_toBottomOf="@id/iv_vaxprof_address_bg"
                 app:layout_constraintStart_toStartOf="@id/iv_vaxprof_address_bg"
                 app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_street_text"
-                app:layout_constraintVertical_bias="0.0"
-                android:layout_marginTop="8dp" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/gl_vaxprof_divider2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="194dp"
-                app:layout_constraintGuide_percent=".47" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/tv_vaxprof_address_region_text"
+                android:id="@+id/tv_vaxprof_address_city_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -353,31 +320,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
-                app:layout_constraintTop_toTopOf="@+id/iv_vaxprof_address_bg" />
-
-            <TextView
-                android:id="@+id/tv_vaxprof_address_province_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppins"
-                android:text="Text"
-                android:textColor="#FFFFFF"
-                android:textSize="13sp"
-                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
-                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_region_text" />
-
-            <TextView
-                android:id="@+id/tv_vaxprof_address_city_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppins"
-                android:text="Text"
-                android:textColor="#FFFFFF"
-                android:textSize="13sp"
-                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
-                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_province_text" />
+                app:layout_constraintTop_toTopOf="@id/iv_vaxprof_address_bg" />
 
             <TextView
                 android:id="@+id/tv_vaxprof_address_barangay_text"
@@ -416,6 +359,198 @@
                 app:layout_constraintBottom_toBottomOf="@id/iv_vaxprof_address_bg"
                 app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
                 app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_street_text" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_vaxsched"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Vaccination Schedule"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_vaxprof_address_bg" />
+
+            <ImageView
+                android:id="@+id/iv_vaxprof_vaxsched_bg"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="80dp"
+                android:src="@drawable/blue_rectangle_vaxprof"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_vaxsched"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_vaxsched_site"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Site: "
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_vaxsched_bg"
+                app:layout_constraintTop_toTopOf="@id/iv_vaxprof_vaxsched_bg" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_vaxsched_1stdose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="1st Dose "
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_vaxsched_bg"
+                app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_vaxsched_site_text" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_vaxsched_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Date: "
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_vaxsched_bg"
+                app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_vaxsched_1stdose" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_vaxsched_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Time: "
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_vaxsched_bg"
+                app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_vaxsched_date_text1" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_vaxsched_2nddose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="2nd Dose "
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_vaxsched_bg"
+                app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_vaxsched_time_text1" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_vaxsched_date3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Date: "
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_vaxsched_bg"
+                app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_vaxsched_2nddose" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_vaxsched_time2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Time: "
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/iv_vaxprof_vaxsched_bg"
+                app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_vaxsched_date_text2" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_vaxprof_divider3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="194dp"
+                app:layout_constraintGuide_percent=".47" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_vaxsched_site_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Text"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
+                app:layout_constraintTop_toTopOf="@id/iv_vaxprof_vaxsched_bg" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_vaxsched_date_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Text"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
+                app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_vaxsched_1stdose" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_vaxsched_time_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Text"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
+                app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_vaxsched_date_text1" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_vaxsched_date_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Text"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
+                app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_vaxsched_2nddose" />
+
+            <TextView
+                android:id="@+id/tv_vaxprof_vaxsched_time_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Text"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_vaxprof_vaxsched_bg"
+                app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
+                app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_vaxsched_date_text2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
