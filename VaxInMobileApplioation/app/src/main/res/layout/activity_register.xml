@@ -90,22 +90,50 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="8dp"
-                app:layout_constraintEnd_toStartOf="@+id/gl_register_middle"
+                app:layout_constraintEnd_toStartOf="@id/gl_register_right"
                 app:layout_constraintStart_toStartOf="@id/gl_register_left"
                 app:layout_constraintTop_toBottomOf="@id/tv_register_firstname" />
+
+            <TextView
+                android:id="@+id/tv_register_middlename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Middle Name"
+                android:textColor="#000000"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/gl_register_left"
+                app:layout_constraintTop_toBottomOf="@+id/et_register_firstname" />
+
+            <EditText
+                android:id="@+id/et_register_middlename"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/et_borders"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="8dp"
+                app:layout_constraintEnd_toStartOf="@id/gl_register_right"
+                app:layout_constraintStart_toStartOf="@id/gl_register_left"
+                app:layout_constraintTop_toBottomOf="@+id/tv_register_middlename" />
 
             <TextView
                 android:id="@+id/tv_register_lastname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:fontFamily="@font/poppins"
                 android:text="Last Name"
                 android:textColor="#000000"
                 android:textSize="13sp"
-                app:layout_constraintStart_toStartOf="@+id/gl_register_middle"
-                app:layout_constraintTop_toBottomOf="@+id/tv_register_signup2" />
+                app:layout_constraintStart_toStartOf="@id/gl_register_left"
+                app:layout_constraintTop_toBottomOf="@+id/et_register_middlename" />
 
             <EditText
                 android:id="@+id/et_register_lastname"
@@ -119,7 +147,7 @@
                 android:inputType="textPersonName"
                 android:padding="8dp"
                 app:layout_constraintEnd_toStartOf="@+id/gl_register_right"
-                app:layout_constraintStart_toStartOf="@+id/gl_register_middle"
+                app:layout_constraintStart_toStartOf="@id/gl_register_left"
                 app:layout_constraintTop_toBottomOf="@+id/tv_register_lastname" />
 
             <TextView
@@ -133,7 +161,7 @@
                 android:textColor="#000000"
                 android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="@+id/gl_register_left"
-                app:layout_constraintTop_toBottomOf="@id/et_register_firstname" />
+                app:layout_constraintTop_toBottomOf="@+id/et_register_lastname" />
 
             <EditText
                 android:id="@+id/et_register_email"
