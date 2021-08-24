@@ -1,18 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/ll_editsched_top"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_solid_pink"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_editsched_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="TextView"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_editsched_venue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="TextView"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_editsched_date" />
+
+                    <ImageButton
+                        android:id="@+id/iv_editsched_done"
+                        android:layout_width="55dp"
+                        android:layout_height="23dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@null"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_editsched_venue"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/tv_editsched_venue"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_editsched_date"
+                        app:srcCompat="@drawable/done_button" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_editsched_userrow"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@+id/gl_editsched_right"
+                app:layout_constraintStart_toStartOf="@+id/gl_editsched_left"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_editsched_filter" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_editsched_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".05" />
+
+            <Spinner
+                android:id="@+id/spinner_editsched_filter"
+                android:layout_width="83dp"
+                android:layout_height="21dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/border_button_white"
+                android:entries="@array/prioritygroups_array"
+                app:layout_constraintEnd_toStartOf="@+id/gl_editsched_right"
+                app:layout_constraintTop_toBottomOf="@+id/ll_editsched_top" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_editsched_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".95"/>
+
+            <CheckBox
+                android:id="@+id/cb_editsched_selectall"
+                android:layout_width="96dp"
+                android:layout_height="22dp"
+                android:text="Select All"
+                app:layout_constraintBottom_toTopOf="@+id/rv_editsched_userrow"
+                app:layout_constraintEnd_toStartOf="@+id/spinner_editsched_filter"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/gl_editsched_left"
+                app:layout_constraintTop_toBottomOf="@+id/ll_editsched_top"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
