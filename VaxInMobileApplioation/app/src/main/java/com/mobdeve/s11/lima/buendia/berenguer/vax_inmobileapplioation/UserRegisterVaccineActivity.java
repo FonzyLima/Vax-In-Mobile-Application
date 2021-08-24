@@ -136,12 +136,26 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(UserRegisterVaccineActivity.this,"You have successfully registered for vaccination!", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(UserRegisterVaccineActivity.this, UserMainActivity.class);
-                    startActivity(intent);
+
+                    RegisteredUsers registeredUser = new RegisteredUsers(priority,fName,lName,mName,email,number,bday,sex,street,barangay,city);
+                    FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("Registered Users")
+                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(registeredUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(UserRegisterVaccineActivity.this,"You have successfully registered for vaccination!", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(UserRegisterVaccineActivity.this, UserMainActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        }
+                    });
+
                 }
             }
         });
+
+
 
 
 
