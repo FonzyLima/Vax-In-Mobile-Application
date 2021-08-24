@@ -18,6 +18,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
     private EditText etEmail, etPassword;
@@ -25,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvRegister;
 
     private FirebaseAuth mAuth;
+    private DatabaseReference databaseReference;
+    String currUserID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,9 +89,39 @@ public class MainActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     FirebaseUser currUser = FirebaseAuth.getInstance().getCurrentUser();
                     if(currUser.isEmailVerified()){
-                        Toast.makeText(MainActivity.this,"LOGGED IN",Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(MainActivity.this, UserMainActivity.class);
-                        startActivity(intent);
+                        databaseReference = FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("Users");
+                        currUserID = currUser.getUid();
+                        databaseReference.child(currUserID).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                Users userProfile = snapshot.getValue(Users.class);
+                                Log.e("HELLO","I AM HEREEE");
+
+                                if(userProfile != null){
+                                    if(userProfile.isAdmin){
+                                        Toast.makeText(MainActivity.this,"LOGGED IN",Toast.LENGTH_LONG).show();
+                                        Intent intent = new Intent(MainActivity.this, AdminMainActivity.class);
+                                        startActivity(intent);
+                                        finish();
+
+
+                                    }
+                                    else{
+                                        Toast.makeText(MainActivity.this,"LOGGED IN",Toast.LENGTH_LONG).show();
+                                        Intent intent = new Intent(MainActivity.this, UserMainActivity.class);
+                                        startActivity(intent);
+                                        finish();
+
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                                Toast.makeText(MainActivity.this,"WEWWW",Toast.LENGTH_LONG).show();
+                            }
+                        });
+
                     }
                     else{
                         Toast.makeText(MainActivity.this,"Email not verified. Check your email",Toast.LENGTH_LONG).show();

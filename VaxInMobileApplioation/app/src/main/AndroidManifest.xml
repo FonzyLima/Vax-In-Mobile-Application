@@ -29,7 +29,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
-
+        <activity android:name=".AdminMainActivity">
+        </activity>
+        <activity android:name=".AdminDateSelected"></activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
