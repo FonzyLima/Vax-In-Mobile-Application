@@ -60,10 +60,11 @@
 
             <Spinner
                 android:id="@+id/spinner_date_venue"
-                android:layout_width="0dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginBottom="20dp"
+                android:background="@drawable/border_button_white"
                 android:entries="@array/venues"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

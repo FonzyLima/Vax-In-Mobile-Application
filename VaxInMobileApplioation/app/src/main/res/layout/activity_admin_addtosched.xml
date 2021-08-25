@@ -32,16 +32,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tv_addtosched_venue"
-                android:layout_width="wrap_content"
+            <Spinner
+                android:id="@+id/spinner_addtosched_venue"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/poppins_medium"
-                android:text="TextView"
-                android:textColor="@color/white"
-                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/border_button_white"
+                android:entries="@array/venues"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_addtosched_date" />
