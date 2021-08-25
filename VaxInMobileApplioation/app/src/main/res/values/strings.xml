@@ -6,6 +6,7 @@
     <string name="tv_pending">Pending <br></br> Applications</string>
 
     <string-array name="gender_array">
+        <item>Select one</item>
         <item>Male</item>
         <item>Female</item>
     </string-array>
@@ -27,6 +28,7 @@
     </string-array>
 
     <string-array name="venues">
+        <item>Select a Vaccination Site</item>
         <item>Venue 1</item>
         <item>Venue 2</item>
         <item>Venue 3</item>
