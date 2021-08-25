@@ -27,7 +27,13 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull UsersViewHolder holder, int position) {
-        return;
+        Users user = dataUsers.get(position);
+        holder.setTvName(user.firstname+user.lastname);
+        holder.setTvBday(user.bday);
+        holder.setTvPriority(user.priority);
+        holder.setTvBarangay(user.barangay);
+        holder.setTvSex(user.sex);
+        holder.setTvCity(user.city);
     }
 
     @Override
