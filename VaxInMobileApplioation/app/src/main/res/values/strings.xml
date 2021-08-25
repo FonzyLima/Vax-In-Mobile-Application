@@ -11,6 +11,7 @@
     </string-array>
 
     <string-array name="prioritygroups_array">
+        <item>Select a Priority Group</item>
         <item>A1. Workers in Frontline Health Services</item>
         <item>A2. All Senior Citizens</item>
         <item>A3. Persons with Comorbidities</item>
@@ -23,5 +24,11 @@
         <item>B5. Overseas FIlipino Workers</item>
         <item>B6. Other Remaining Workforce</item>
         <item>C. Rest of the Filipino population not otherwise included in the above groups</item>
+    </string-array>
+
+    <string-array name="venues">
+        <item>Venue 1</item>
+        <item>Venue 2</item>
+        <item>Venue 3</item>
     </string-array>
 </resources>
