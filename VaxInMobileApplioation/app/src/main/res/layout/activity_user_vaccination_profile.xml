@@ -156,25 +156,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/poppins"
                 android:text="Text"
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_vaxprof_personalinfo_bg"
+                app:layout_constraintEnd_toEndOf="@+id/iv_vaxprof_personalinfo_bg"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
-                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_personalinfo_phone_text"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_personalinfo_phone_text" />
 
             <TextView
                 android:id="@+id/tv_vaxprof_personalinfo_birthday_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/poppins"
                 android:text="Text"
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_vaxprof_personalinfo_bg"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
                 app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_personalinfo_name_text" />
 
@@ -183,10 +188,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/poppins"
                 android:text="Text"
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_vaxprof_personalinfo_bg"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
                 app:layout_constraintTop_toTopOf="@id/iv_vaxprof_personalinfo_bg" />
 
@@ -195,10 +203,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/poppins"
                 android:text="Text"
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_vaxprof_personalinfo_bg"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
                 app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_personalinfo_email_text" />
 
@@ -207,10 +218,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/poppins"
                 android:text="Text"
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_vaxprof_personalinfo_bg"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
                 app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_personalinfo_gender_text" />
 
@@ -219,10 +233,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/poppins"
                 android:text="Text"
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_vaxprof_personalinfo_bg"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
                 app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_personalinfo_birthday_text" />
 
@@ -315,10 +332,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/poppins"
                 android:text="Text"
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_vaxprof_address_bg"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
                 app:layout_constraintTop_toTopOf="@id/iv_vaxprof_address_bg" />
 
@@ -327,10 +347,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/poppins"
                 android:text="Text"
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_vaxprof_address_bg"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
                 app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_city_text" />
 
@@ -339,10 +362,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/poppins"
                 android:text="Text"
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_vaxprof_address_bg"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
                 app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_barangay_text" />
 
@@ -351,12 +377,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/poppins"
                 android:text="Text"
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_vaxprof_address_bg"
+                app:layout_constraintEnd_toEndOf="@+id/iv_vaxprof_address_bg"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
                 app:layout_constraintTop_toBottomOf="@+id/tv_vaxprof_address_street_text" />
 
@@ -495,10 +524,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/poppins"
                 android:text="Text"
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_vaxprof_vaxsched_bg"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
                 app:layout_constraintTop_toTopOf="@id/iv_vaxprof_vaxsched_bg" />
 
@@ -507,10 +539,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/poppins"
                 android:text="Text"
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_vaxprof_vaxsched_bg"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
                 app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_vaxsched_1stdose" />
 
@@ -519,10 +554,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/poppins"
                 android:text="Text"
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_vaxprof_vaxsched_bg"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
                 app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_vaxsched_date_text1" />
 
@@ -531,10 +569,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/poppins"
                 android:text="Text"
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_vaxprof_vaxsched_bg"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
                 app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_vaxsched_2nddose" />
 
@@ -543,12 +584,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/poppins"
                 android:text="Text"
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_vaxprof_vaxsched_bg"
+                app:layout_constraintEnd_toEndOf="@+id/iv_vaxprof_vaxsched_bg"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/gl_vaxprof_divider"
                 app:layout_constraintTop_toBottomOf="@id/tv_vaxprof_vaxsched_date_text2" />
 

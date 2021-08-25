@@ -21,6 +21,7 @@
                 android:id="@+id/cv_scheduler"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
                 android:background="#DE4EA4"
                 android:dateTextAppearance="@style/calendar_theme"
                 android:theme="@style/calendar_theme"
@@ -29,7 +30,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/guideline5"
                 app:layout_constraintStart_toStartOf="@+id/guideline3"
                 app:layout_constraintTop_toTopOf="@+id/guideline2"
-                app:layout_constraintVertical_bias="0.07999998" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline5"
@@ -66,13 +67,26 @@
                 app:layout_constraintTop_toBottomOf="@+id/cv_scheduler"
                 app:lineHeight="20sp" />
 
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/settings_icon"
+                app:tint="@color/darkblue" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_main_applications"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toStartOf="@+id/guideline5"
                 app:layout_constraintStart_toStartOf="@+id/guideline3"
-                app:layout_constraintTop_toBottomOf="@+id/tv_pending" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_pending" >
+
+            </androidx.recyclerview.widget.RecyclerView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
