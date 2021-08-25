@@ -32,6 +32,7 @@
         <activity android:name=".AdminMainActivity">
         </activity>
         <activity android:name=".AdminDateSelected"></activity>
+        <activity android:name=".AdminAddtoSched"></activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
