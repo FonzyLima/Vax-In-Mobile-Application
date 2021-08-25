@@ -64,10 +64,10 @@ public class AdminMainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Users user = dataSnapshot.getValue(Users.class);
-                    if(!user.isRegistered){
+                    if(user.isRegistered && !user.isScheduled && !user.isAdmin){
                         usersArrayList.add(user);
                     }
-                    
+
                 }
                 usersAdapter.notifyDataSetChanged();
             }
