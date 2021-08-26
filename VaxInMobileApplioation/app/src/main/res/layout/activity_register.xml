@@ -163,7 +163,7 @@
             <EditText
                 android:id="@+id/et_register_email"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/et_borders"
@@ -190,7 +190,7 @@
             <EditText
                 android:id="@+id/et_register_password"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/et_borders"
@@ -217,7 +217,7 @@
             <EditText
                 android:id="@+id/et_register_confirm_password"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/et_borders"
@@ -244,7 +244,7 @@
             <EditText
                 android:id="@+id/et_register_phone"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/et_borders"
@@ -271,7 +271,7 @@
             <EditText
                 android:id="@+id/et_register_birthday"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/et_borders"
@@ -298,7 +298,7 @@
             <Spinner
                 android:id="@+id/spinner_register_sex"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/et_borders"
