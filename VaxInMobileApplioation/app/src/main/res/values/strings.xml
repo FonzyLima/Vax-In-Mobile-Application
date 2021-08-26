@@ -5,6 +5,10 @@
     <string name="tv_login">Login</string>
     <string name="tv_pending">Pending <br></br> Applications</string>
 
+    <string name="sms_template">
+        "[VACCINATION SCHEDULE]\n\nGood day" + [FIRST NAME] + [MIDDLE NAME] + [LAST NAME] + "!\n\nThank you for registering for your COVID-19 vaccine. Your vaccination schedule is shown below. Please refer to the following details:\n\nDate:" + [SCHEDULED DATE] + "\nTime:" + [TIME] + "\nVenue:" + [VACCINATION SITE] + "\n\nPlease bring a valid ID, ballpen, and hand sanitizer. Come promptly on your designated time and don't forget to wear your face mask and face shield.\n\nFor queries, call our hotline at 8532-5001 loc 471-480 Monday-Saturday from 8AM-8PM.  \n\nStay safe!"
+    </string>
+
     <string-array name="gender_array">
         <item>Select one</item>
         <item>Male</item>
