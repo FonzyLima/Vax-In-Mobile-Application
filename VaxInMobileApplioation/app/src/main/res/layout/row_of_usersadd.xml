@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_usersadd"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -10,8 +11,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/row_blue_borders">
+        android:layout_height="wrap_content"
+        android:background="@drawable/row_blue_borders"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/tv_rowadd_gender"
@@ -65,7 +67,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
             android:fontFamily="sans-serif-medium"
             android:text="TextView"
             android:textColor="@color/white"
@@ -77,13 +78,13 @@
             android:id="@+id/tv_rowadd_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="12dp"
             android:fontFamily="sans-serif-light"
             android:text="TextView"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/tv_rowadd_city"
-            app:layout_constraintTop_toBottomOf="@+id/tv_rowadd_group" />
+            app:layout_constraintStart_toEndOf="@+id/tv_rowadd_gender"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rowadd_name" />
 
         <TextView
             android:id="@+id/tv_rowadd_barangay"
@@ -102,12 +103,10 @@
             android:layout_width="60dp"
             android:layout_height="66dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@drawable/favatar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
