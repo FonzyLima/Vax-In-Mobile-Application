@@ -3,7 +3,7 @@ package com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation;
 public class Users {
 
     public String firstname, lastname, email, phone, sex, bday,priority, houseNum, street, barangay, city, firstSchedule,firstTime, secondSchedule,secondTime, vacSite;
-    public Boolean isAdmin, isRegistered, isFirstDose, isComplete, isScheduled;
+    public Boolean isAdmin, isRegistered, isFirstDose, isComplete, isScheduled, isSelected;
 
     public Users(){}
 
@@ -14,6 +14,7 @@ public class Users {
         this.phone = phone;
         this.sex = sex;
         this.bday = bday;
+        this.isSelected = false;
         this.isAdmin = false;
         this.isRegistered = false;
         this.isScheduled = false;

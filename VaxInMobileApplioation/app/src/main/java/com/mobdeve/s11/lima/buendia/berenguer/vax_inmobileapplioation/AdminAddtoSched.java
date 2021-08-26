@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class AdminAddtoSched extends AppCompatActivity {
-    private TextView tvDate;
+    private TextView tvDate, tvVenue;
     private Spinner spVenue;
     private RecyclerView rvAddtoSchedUserRow;
     private RecyclerView.LayoutManager adminAddManager;
@@ -28,7 +28,7 @@ public class AdminAddtoSched extends AppCompatActivity {
     private UsersAdapter usersAdapter;
     private ArrayList<Users> usersArrayList;
     private Intent incomingIntent;
-    private String date;
+    private String date, venue;
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app");
     private DatabaseReference databaseReference = database.getReference().child("Users");
@@ -42,10 +42,11 @@ public class AdminAddtoSched extends AppCompatActivity {
         this.usersArrayList = new ArrayList<>();
         incomingIntent = getIntent();
         this.date = incomingIntent.getStringExtra("DateSelected");
+        this.venue = incomingIntent.getStringExtra("VenueSelected");
         this.tvDate = findViewById(R.id.tv_addtosched_date);
         this.tvDate.setText(this.date);
-        this.spVenue = findViewById(R.id.spinner_addtosched_venue);
-
+        this.tvVenue = findViewById(R.id.tv_addtosched_venue);
+        this.tvVenue.setText(this.venue);
         this.initRecyclerView();
 
     }

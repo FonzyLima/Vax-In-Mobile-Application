@@ -32,7 +32,7 @@ public class AdminDateSelected extends AppCompatActivity {
     private UsersAdapter usersAdapter;
     private ArrayList<Users> usersArrayList;
     private Intent incomingIntent;
-    private String date;
+    private String date, venue;
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app");
     private DatabaseReference databaseReference = database.getReference().child("Users");
@@ -51,11 +51,13 @@ public class AdminDateSelected extends AppCompatActivity {
         this.date = incomingIntent.getStringExtra("DateSelected");
         this.tvDateSelected.setText(date);
 
+        this.venue = spVenue.getSelectedItem().toString();
         this.ibAddUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminDateSelected.this, AdminAddtoSched.class);
                 intent.putExtra("DateSelected", date);
+                intent.putExtra("VenueSelected", venue);
                 startActivity(intent);
             }
         });
