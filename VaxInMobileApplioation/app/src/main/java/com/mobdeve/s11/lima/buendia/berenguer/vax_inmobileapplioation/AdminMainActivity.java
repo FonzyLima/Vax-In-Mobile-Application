@@ -70,7 +70,6 @@ public class AdminMainActivity extends AppCompatActivity {
                     if(user.isRegistered && !user.isScheduled && !user.isAdmin){
                         usersArrayList.add(user);
                     }
-
                 }
                 usersAdapter.notifyDataSetChanged();
             }
