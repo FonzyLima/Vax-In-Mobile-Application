@@ -2,7 +2,6 @@ package com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation;
 
 import android.Manifest;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,7 +17,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -52,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
         etRegisterEmail = findViewById(R.id.et_register_email);
         etRegisterPassword = findViewById(R.id.et_register_password);
         etRegisterConfirm = findViewById(R.id.et_register_confirm_password);
-        etRegisterBday = findViewById(R.id.et_register_birthday);
+        etRegisterBday = findViewById(R.id.et_register_age);
 
         spinnerSex = findViewById(R.id.spinner_register_sex);
 

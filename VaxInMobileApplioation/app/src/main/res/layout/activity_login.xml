@@ -124,9 +124,10 @@
                 <EditText
                     android:id="@+id/et_login_email"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/et_borders"
                     android:ems="10"
+                    android:fontFamily="@font/poppins"
                     android:inputType="textEmailAddress"
                     android:padding="8dp" />
             </LinearLayout>
@@ -153,9 +154,10 @@
                 <EditText
                     android:id="@+id/et_login_password"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/et_borders"
                     android:ems="10"
+                    android:fontFamily="@font/poppins"
                     android:inputType="textPassword"
                     android:padding="8dp" />
             </LinearLayout>

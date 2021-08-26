@@ -19,9 +19,10 @@
             android:layout_width="60dp"
             android:layout_height="66dp"
             android:layout_marginStart="20dp"
+            android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@drawable/favatar" />
 
         <TextView
             android:id="@+id/tv_row_name"
@@ -64,10 +65,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/poppins_light"
             android:text="TextView"
             android:textColor="@color/white"
             android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/tv_row_gender"
             app:layout_constraintTop_toBottomOf="@+id/tv_row_name" />
 

@@ -46,7 +46,7 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
         etMName = findViewById(R.id.et_rv_middlename);
         etEmail = findViewById(R.id.et_rv_email);
         etNumber = findViewById(R.id.et_rv_phone);
-        etBday = findViewById(R.id.et_rv_birthday);
+        etBday = findViewById(R.id.et_rv_age);
         spSex = findViewById(R.id.spinner_rv_gender);
         etHousenum = findViewById(R.id.et_rv_addressnum);
         etStreet = findViewById(R.id.et_rv_street);
