@@ -85,10 +85,15 @@
                 android:text="@string/tv_login"
                 android:textColor="#303F88"
                 android:textSize="25sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.016"
-                app:layout_constraintStart_toStartOf="@id/guideline4"
+                app:layout_constraintStart_toStartOf="@+id/guideline4"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_right_login2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".935" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline4"
@@ -99,13 +104,12 @@
 
             <LinearLayout
                 android:id="@+id/linearLayout"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.503"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/gl_right_login2"
+                app:layout_constraintStart_toStartOf="@+id/guideline4"
                 app:layout_constraintTop_toBottomOf="@+id/tv_login">
 
                 <TextView
@@ -119,7 +123,7 @@
 
                 <EditText
                     android:id="@+id/et_login_email"
-                    android:layout_width="278dp"
+                    android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:background="@drawable/et_borders"
                     android:ems="10"
@@ -129,12 +133,12 @@
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/gl_right_login2"
+                app:layout_constraintStart_toStartOf="@+id/guideline4"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
                 <TextView
@@ -148,7 +152,7 @@
 
                 <EditText
                     android:id="@+id/et_login_password"
-                    android:layout_width="278dp"
+                    android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:background="@drawable/et_borders"
                     android:ems="10"
@@ -158,16 +162,17 @@
 
             <Button
                 android:id="@+id/btn_login_login"
-                android:layout_width="278dp"
-                android:layout_height="40dp"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="#2C408D"
                 android:text="Login"
+                android:textSize="20sp"
                 android:textStyle="normal"
                 app:cornerRadius="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/gl_right_login2"
                 app:layout_constraintHorizontal_bias="0.509"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline4"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
             <TextView
@@ -175,16 +180,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="24dp"
                 android:fontFamily="@font/poppins"
                 android:text="No Account?"
                 android:textColor="#000000"
                 android:textSize="13sp"
                 android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
-                app:layout_constraintTop_toBottomOf="@+id/btn_login_login"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_login_login" />
 
             <TextView
                 android:id="@+id/tv_login_register"
