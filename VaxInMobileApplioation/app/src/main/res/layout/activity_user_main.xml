@@ -10,8 +10,10 @@
   <ScrollView
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      tools:layout_editor_absoluteX="-156dp"
-      tools:layout_editor_absoluteY="0dp">
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -148,6 +150,8 @@
           android:textStyle="bold"
           app:layout_constraintBottom_toTopOf="@+id/tv_tracker_scheduled"
           app:layout_constraintEnd_toStartOf="@+id/iv_tracker"
+          app:layout_constraintHorizontal_bias="1.0"
+          app:layout_constraintStart_toStartOf="@+id/guideline6"
           app:layout_constraintTop_toTopOf="@+id/iv_tracker"
           app:layout_constraintVertical_bias="0.0" />
 
@@ -163,6 +167,8 @@
           android:textSize="14sp"
           android:textStyle="bold"
           app:layout_constraintEnd_toStartOf="@+id/iv_tracker"
+          app:layout_constraintHorizontal_bias="1.0"
+          app:layout_constraintStart_toStartOf="@+id/guideline6"
           app:layout_constraintTop_toBottomOf="@+id/tv_tracker_register" />
 
       <TextView
@@ -177,6 +183,8 @@
           android:textSize="14sp"
           android:textStyle="bold"
           app:layout_constraintEnd_toStartOf="@+id/iv_tracker"
+          app:layout_constraintHorizontal_bias="1.0"
+          app:layout_constraintStart_toStartOf="@+id/guideline6"
           app:layout_constraintTop_toBottomOf="@+id/tv_tracker_scheduled" />
 
       <TextView
@@ -192,6 +200,8 @@
           android:textStyle="bold"
           app:layout_constraintBottom_toBottomOf="@+id/iv_tracker"
           app:layout_constraintEnd_toStartOf="@+id/iv_tracker"
+          app:layout_constraintHorizontal_bias="1.0"
+          app:layout_constraintStart_toStartOf="@+id/guideline6"
           app:layout_constraintTop_toBottomOf="@+id/tv_tracker_1stdose"
           app:layout_constraintVertical_bias="0.0" />
 
@@ -204,6 +214,13 @@
           app:layout_constraintEnd_toEndOf="@id/iv_pinkbg"
           app:layout_constraintTop_toTopOf="@id/iv_pinkbg"
           app:srcCompat="@drawable/settings_icon" />
+
+      <androidx.constraintlayout.widget.Guideline
+          android:id="@+id/guideline6"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          app:layout_constraintGuide_percent=".5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
   </ScrollView>
