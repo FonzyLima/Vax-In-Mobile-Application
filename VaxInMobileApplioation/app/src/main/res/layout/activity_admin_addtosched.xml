@@ -65,7 +65,7 @@
         app:layout_constraintGuide_percent=".95" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_addtosched"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"

@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class UsersViewHolder extends RecyclerView.ViewHolder {
     private TextView tvName, tvPriority, tvSex, tvBday, tvBarangay, tvCity;
-    private ImageView ivAddbutton, ivAvatar;
+    private ImageView ivAvatar;
     private LinearLayout ll_users;
 
     public UsersViewHolder(@NonNull View itemView) {
@@ -23,7 +23,6 @@ public class UsersViewHolder extends RecyclerView.ViewHolder {
         this.tvBarangay = itemView.findViewById(R.id.tv_row_barangay);
         this.tvCity = itemView.findViewById(R.id.tv_row_city);
 
-        this.ivAddbutton = itemView.findViewById(R.id.iv_row_btnadd);
         this.ivAvatar = itemView.findViewById(R.id.iv_row_picture);
 
         this.ll_users = itemView.findViewById(R.id.ll_users);

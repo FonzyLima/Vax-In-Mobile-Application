@@ -140,7 +140,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Users user = new Users(firstname,lastname,email, phone, sex,bday);
+                    Users user = new Users(firstname,lastname,email, phone, sex,bday,FirebaseAuth.getInstance().getUid());
                     mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {

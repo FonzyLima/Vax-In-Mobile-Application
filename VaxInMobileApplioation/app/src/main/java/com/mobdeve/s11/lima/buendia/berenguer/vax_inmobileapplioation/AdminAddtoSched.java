@@ -1,7 +1,10 @@
 package com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -22,10 +25,12 @@ import java.util.ArrayList;
 public class AdminAddtoSched extends AppCompatActivity {
     private TextView tvDate, tvVenue;
     private Spinner spVenue;
+    private Button btnAddtoSched;
+
     private RecyclerView rvAddtoSchedUserRow;
     private RecyclerView.LayoutManager adminAddManager;
 
-    private UsersAdapter usersAdapter;
+    private UsersAddAdapter usersAddAdapter;
     private ArrayList<Users> usersArrayList;
     private Intent incomingIntent;
     private String date, venue;
@@ -48,6 +53,13 @@ public class AdminAddtoSched extends AppCompatActivity {
         this.tvVenue = findViewById(R.id.tv_addtosched_venue);
         this.tvVenue.setText(this.venue);
         this.initRecyclerView();
+        this.btnAddtoSched = findViewById(R.id.btn_addtosched);
+        this.btnAddtoSched.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
     }
 
@@ -56,8 +68,8 @@ public class AdminAddtoSched extends AppCompatActivity {
         this.adminAddManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         this.rvAddtoSchedUserRow.setLayoutManager(this.adminAddManager);
 
-        this.usersAdapter = new UsersAdapter(this.usersArrayList);
-        this.rvAddtoSchedUserRow.setAdapter(usersAdapter);
+        this.usersAddAdapter = new UsersAddAdapter(this.usersArrayList);
+        this.rvAddtoSchedUserRow.setAdapter(usersAddAdapter);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -70,7 +82,7 @@ public class AdminAddtoSched extends AppCompatActivity {
                     }
 
                 }
-                usersAdapter.notifyDataSetChanged();
+                usersAddAdapter.notifyDataSetChanged();
             }
 
             @Override
