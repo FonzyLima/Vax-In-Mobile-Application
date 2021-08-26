@@ -33,4 +33,23 @@
         <item>Venue 2</item>
         <item>Venue 3</item>
     </string-array>
+
+    <string-array name="timeslots">
+        <item>Select a Time Slot</item>
+        <item>8:00AM - 9:00AM</item>
+        <item>9:00AM - 10:00AM</item>
+        <item>10:00AM - 11:00AM</item>
+        <item>11:00AM - 12:00PM</item>
+        <item>12:00PM - 1:00PM</item>
+        <item>1:00PM - 2:00PM</item>
+        <item>2:00PM - 3:00PM</item>
+        <item>3:00PM - 4:00PM</item>
+        <item>4:00PM - 5:00PM</item>
+        <item>5:00PM - 6:00PM</item>
+        <item>6:00PM - 7:00PM</item>
+        <item>8:00PM - 9:00PM</item>
+        <item>9:00PM - 10:00PM</item>
+        <item>10:00PM - 11:00PM</item>
+        <item>11:00PM - 12:00AM</item>
+    </string-array>
 </resources>
