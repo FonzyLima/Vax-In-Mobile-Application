@@ -16,7 +16,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class AdminMainActivity extends AppCompatActivity {
     private CalendarView cvScheduler;
@@ -78,6 +81,18 @@ public class AdminMainActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    public String dateConverter(String d) {
+        String finaldate = "";
+        try {
+            SimpleDateFormat formatter1 = new SimpleDateFormat("MM/dd/yyyy");
+            Date date2 = formatter1.parse(d);
+            SimpleDateFormat formatter2 = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
+            finaldate = formatter2.format(date2);
+        }
+        catch (Exception e) {
+        }
+        return finaldate;
     }
 }
