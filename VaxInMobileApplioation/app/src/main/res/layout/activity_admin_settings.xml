@@ -36,7 +36,7 @@
         app:layout_constraintVertical_bias="0.39">
 
         <TextView
-            android:id="@+id/tv_settings_title"
+            android:id="@+id/tv_adminsettings_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -49,7 +49,7 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/tv_edit_sms"
+            android:id="@+id/tv_adminedit_sms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -64,7 +64,7 @@
             android:visibility="gone" />
 
         <Button
-            android:id="@+id/btn_settings_editsms"
+            android:id="@+id/btn_adminsettings_editsms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -79,7 +79,7 @@
             app:cornerRadius="12dp" />
 
         <Button
-            android:id="@+id/btn_settings_logout"
+            android:id="@+id/btn_adminsettings_logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
