@@ -113,7 +113,6 @@ public class AdminAddtoSched extends AppCompatActivity {
                         usersAddAdapter.notifyItemChanged(i);
                     }
                 }
-            }
         });
 
     }

@@ -16,7 +16,7 @@
 
         <ImageView
             android:id="@+id/iv_row_picture"
-            android:layout_width="60dp"
+            android:layout_width="66dp"
             android:layout_height="66dp"
             android:layout_marginStart="20dp"
             android:scaleType="centerCrop"

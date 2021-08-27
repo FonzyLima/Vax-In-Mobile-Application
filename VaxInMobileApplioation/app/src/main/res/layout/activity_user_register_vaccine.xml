@@ -241,6 +241,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/et_rv_age" />
 
+            <EditText
+                android:id="@+id/et_rv_gender"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/et_borders"
+                android:ems="10"
+                android:inputType="textShortMessage|number"
+                android:padding="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_rv_gender" />
+
             <Spinner
                 android:id="@+id/spinner_rv_gender"
                 style="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar"
@@ -252,6 +267,7 @@
                 android:background="@drawable/et_borders"
                 android:entries="@array/gender_array"
                 android:padding="8dp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -268,7 +284,7 @@
                 android:textColor="#000000"
                 android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/spinner_rv_gender" />
+                app:layout_constraintTop_toBottomOf="@+id/et_rv_gender" />
 
             <EditText
                 android:id="@+id/et_rv_addressnum"
