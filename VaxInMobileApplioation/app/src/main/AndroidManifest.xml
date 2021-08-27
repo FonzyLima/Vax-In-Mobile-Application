@@ -3,7 +3,8 @@
     package="com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation">
 
     <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VaxInMobileApplioation">
+        <activity
+            android:name=".EditSMSActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="true" />
         <activity
             android:name=".UserVaccinationProfileActivity"
             android:exported="true" />
@@ -31,16 +38,19 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".AdminMainActivity">
-        </activity>
-        <activity android:name=".AdminDateSelected"></activity>
-        <activity android:name=".AdminAddtoSched"></activity>
+        <activity android:name=".AdminMainActivity" />
+        <activity android:name=".AdminDateSelected" />
+        <activity android:name=".AdminAddtoSched" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-        <service android:name=".PushNotificationService" android:exported="false">
+
+        <service
+            android:name=".PushNotificationService"
+            android:exported="false">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"></action>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
     </application>

@@ -311,9 +311,10 @@
             <Button
                 android:id="@+id/btn_register_register"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:backgroundTint="#2C408D"
+                android:padding="5dp"
                 android:text="Sign Up"
                 android:textSize="20sp"
                 android:textStyle="normal"
