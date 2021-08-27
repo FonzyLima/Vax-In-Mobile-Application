@@ -88,11 +88,10 @@ public class AdminAddtoSched extends AppCompatActivity {
 
                                 }
                                 }
-                            }
-                        });
+                            });
+                        }
                     }
                 }
-            }
         });
 
     }
