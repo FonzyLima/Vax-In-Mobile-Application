@@ -22,7 +22,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Set;
 
 public class AdminMainActivity extends AppCompatActivity {
     private CalendarView cvScheduler;
@@ -48,7 +47,7 @@ public class AdminMainActivity extends AppCompatActivity {
         this.ivAdminSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminMainActivity.this, SettingsActivity.class);
+                Intent intent = new Intent(AdminMainActivity.this, AdminSettingsActivity.class);
                 startActivity(intent);
             }
         });

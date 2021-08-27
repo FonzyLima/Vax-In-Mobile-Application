@@ -82,8 +82,6 @@ public class AdminDateSelected extends AppCompatActivity {
             }
         });
 
-
-//        this.venue = spVenue.getSelectedItem().toString();
         this.ibAddUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

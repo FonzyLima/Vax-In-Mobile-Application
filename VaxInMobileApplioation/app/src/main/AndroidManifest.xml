@@ -16,7 +16,7 @@
             android:name=".EditSMSActivity"
             android:exported="true" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".AdminSettingsActivity"
             android:exported="true" />
         <activity
             android:name=".UserVaccinationProfileActivity"
@@ -41,6 +41,8 @@
         <activity android:name=".AdminMainActivity" />
         <activity android:name=".AdminDateSelected" />
         <activity android:name=".AdminAddtoSched" />
+        <activity android:name=".UserSettings"></activity>
+
 
         <meta-data
             android:name="preloaded_fonts"

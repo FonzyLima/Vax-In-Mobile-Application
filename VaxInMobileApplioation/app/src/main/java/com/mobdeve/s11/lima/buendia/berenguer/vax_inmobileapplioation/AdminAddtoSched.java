@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -33,7 +34,7 @@ import java.util.Locale;
 
 public class AdminAddtoSched extends AppCompatActivity {
     private TextView tvDate, tvTime, tvVenue;
-    private Spinner spVenue;
+    private Spinner spVenue, spFilter;
     private Button btnAddtoSched;
 
     private RecyclerView rvAddtoSchedUserRow;
@@ -69,6 +70,20 @@ public class AdminAddtoSched extends AppCompatActivity {
         this.tvTime = findViewById(R.id.tv_addtosched_time);
         this.tvTime.setText(this.time);
         this.initRecyclerView();
+
+        this.spFilter = findViewById(R.id.spinner_addtosched_filter);
+
+        this.spFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                filterRecyclerView(spFilter.getSelectedItem().toString().substring(0,2));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         this.btnAddtoSched = findViewById(R.id.btn_addtosched);
         this.btnAddtoSched.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,6 +148,35 @@ public class AdminAddtoSched extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Users user = dataSnapshot.getValue(Users.class);
                     if (user.isRegistered && !user.isScheduled && !user.isAdmin) {
+                        usersArrayList.add(user);
+
+                    }
+
+                }
+                usersAddAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void filterRecyclerView(String filter){
+        this.rvAddtoSchedUserRow = findViewById(R.id.rv_addtosched_userrow);
+        this.adminAddManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        this.rvAddtoSchedUserRow.setLayoutManager(this.adminAddManager);
+
+        this.usersAddAdapter = new UsersAddAdapter(this.usersArrayList);
+        this.rvAddtoSchedUserRow.setAdapter(usersAddAdapter);
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Users user = dataSnapshot.getValue(Users.class);
+                    if (user.priority.equals(filter) && !user.isScheduled) {
                         usersArrayList.add(user);
 
                     }

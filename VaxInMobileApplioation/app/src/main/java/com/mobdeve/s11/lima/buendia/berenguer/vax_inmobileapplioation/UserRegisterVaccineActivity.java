@@ -25,9 +25,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 public class UserRegisterVaccineActivity extends AppCompatActivity {
-    private EditText etFName, etMname, etLName, etMName, etEmail, etNumber,
+    private EditText etFName, etMname, etLName, etMName,etSex, etEmail, etNumber,
                      etBday, etHousenum, etStreet, etBarangay, etCity;
-    private Spinner spPrioGroup, spSex;
+    private Spinner spPrioGroup;
     private Button btnRegisterVaccine;
 
     private FirebaseAuth mAuth;
@@ -48,7 +48,7 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.et_rv_email);
         etNumber = findViewById(R.id.et_rv_phone);
         etBday = findViewById(R.id.et_rv_age);
-        spSex = findViewById(R.id.spinner_rv_gender);
+        etSex = findViewById(R.id.et_rv_gender);
         etHousenum = findViewById(R.id.et_rv_addressnum);
         etStreet = findViewById(R.id.et_rv_street);
         etBarangay = findViewById(R.id.et_rv_barangay);
@@ -77,6 +77,8 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
                     etNumber.setEnabled(false);
                     etBday.setText(userProfile.bday);
                     etBday.setEnabled(false);
+                    etSex.setText(userProfile.sex);
+                    etSex.setEnabled(false);
 
                 }
             }
@@ -108,7 +110,7 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
         email = etEmail.getText().toString().trim();
         number = etNumber.getText().toString().trim();
         bday = etBday.getText().toString().trim();
-        sex = spSex.getSelectedItem().toString();
+        sex = etSex.getText().toString();
         houseNum = etHousenum.getText().toString().trim();
         street = etStreet.getText().toString().trim();
         barangay = etBarangay.getText().toString().trim();
@@ -155,17 +157,6 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
                     Intent intent = new Intent(UserRegisterVaccineActivity.this, UserMainActivity.class);
                     startActivity(intent);
                     finish();
-
-//                    RegisteredUsers registeredUser = new RegisteredUsers(priority,fName,lName,mName,email,number,bday,sex,houseNum,street,barangay,city);
-//                    FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("RegisteredUsers")
-//                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(registeredUser).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<Void> task) {
-//                            if(task.isSuccessful()){
-//
-//                            }
-//                        }
-//                    });
 
                 }
             }

@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class UserMainActivity extends AppCompatActivity {
-    private ImageView ivProgressCircle,ivTracker, btnRegisVaccine, btnProfile;
+    private ImageView ivProgressCircle,ivTracker, btnRegisVaccine, btnProfile, btnSettings;
 
     private FirebaseAuth mAuth;
     private FirebaseUser currUser;
@@ -37,11 +37,19 @@ public class UserMainActivity extends AppCompatActivity {
         ivTracker = findViewById(R.id.iv_tracker);
         btnRegisVaccine = findViewById(R.id.iv_registervax_bg);
         btnProfile = findViewById(R.id.iv_vaxprof_bg);
-
+        btnSettings = findViewById(R.id.iv_settings);
+        btnSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserMainActivity.this, UserSettings.class);
+                startActivity(intent);
+            }
+        });
         btnRegisVaccine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserMainActivity.this, UserRegisterVaccineActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
         });
@@ -95,7 +103,7 @@ public class UserMainActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(UserMainActivity.this,"WEWWW",Toast.LENGTH_LONG).show();
+                Toast.makeText(UserMainActivity.this,"Error Entering Data. Please Try Again!",Toast.LENGTH_LONG).show();
             }
         });
 
