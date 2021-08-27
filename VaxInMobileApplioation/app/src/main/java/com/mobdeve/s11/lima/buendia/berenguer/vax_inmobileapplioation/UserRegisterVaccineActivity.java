@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 public class UserRegisterVaccineActivity extends AppCompatActivity {
-    private EditText etFName, etLName, etMName, etEmail, etNumber,
+    private EditText etFName, etMname, etLName, etMName, etEmail, etNumber,
                      etBday, etHousenum, etStreet, etBarangay, etCity;
     private Spinner spPrioGroup, spSex;
     private Button btnRegisterVaccine;
@@ -42,6 +42,7 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
 
         spPrioGroup = findViewById(R.id.spinner_rv_priority);
         etFName = findViewById(R.id.et_rv_firstname);
+        etMname = findViewById(R.id.et_rv_middlename);
         etLName = findViewById(R.id.et_rv_lastname);
         etMName = findViewById(R.id.et_rv_middlename);
         etEmail = findViewById(R.id.et_rv_email);
@@ -66,6 +67,8 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
                 if(userProfile != null){
                     etFName.setText(userProfile.firstname);
                     etFName.setEnabled(false);
+                    etMname.setText(userProfile.middlename);
+                    etMname.setEnabled(false);
                     etLName.setText(userProfile.lastname);
                     etLName.setEnabled(false);
                     etEmail.setText(userProfile.email);
@@ -74,7 +77,6 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
                     etNumber.setEnabled(false);
                     etBday.setText(userProfile.bday);
                     etBday.setEnabled(false);
-
 
                 }
             }
@@ -134,7 +136,7 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
         }
 
         HashMap hashMap = new HashMap();
-        hashMap.put("priority",priority);
+        hashMap.put("priority",priority.substring(0,2));
         hashMap.put("isRegistered",true);
         hashMap.put("houseNum",houseNum);
         hashMap.put("street",street);

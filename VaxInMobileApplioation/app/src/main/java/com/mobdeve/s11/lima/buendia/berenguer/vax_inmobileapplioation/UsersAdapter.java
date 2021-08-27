@@ -34,6 +34,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersViewHolder> {
         holder.setTvBarangay(user.barangay);
         holder.setTvSex(user.sex);
         holder.setTvCity(user.city);
+        holder.setIvAvatar(user.sex);
     }
 
     @Override

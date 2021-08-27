@@ -3,6 +3,7 @@ package com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 
 public class AdminDateSelected extends AppCompatActivity {
     private TextView tvDateSelected;
-    private Spinner spVenue;
+    private Spinner spVenue, spTime;
     private ImageButton ibAddUser;
     private RecyclerView rvLocations;
     private RecyclerView.LayoutManager adminMainManager;
@@ -32,7 +33,7 @@ public class AdminDateSelected extends AppCompatActivity {
     private UsersAdapter usersAdapter;
     private ArrayList<Users> usersArrayList;
     private Intent incomingIntent;
-    private String date, venue;
+    private String date, time, secondDate, venue;
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app");
     private DatabaseReference databaseReference = database.getReference().child("Users");
@@ -46,17 +47,51 @@ public class AdminDateSelected extends AppCompatActivity {
 
         this.ibAddUser = findViewById(R.id.ib_date_addusers);
         this.spVenue = findViewById(R.id.spinner_date_venue);
+        this.spTime = findViewById(R.id.spinner_date_time);
         this.tvDateSelected = findViewById(R.id.tv_date_date);
         incomingIntent = getIntent();
         this.date = incomingIntent.getStringExtra("DateSelected");
+        this.secondDate = incomingIntent.getStringExtra("SeconDoseDate");
         this.tvDateSelected.setText(date);
 
-        this.venue = spVenue.getSelectedItem().toString();
+
+        spVenue.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                venue = spVenue.getSelectedItem().toString();
+                initRecyclerView();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+        spTime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                time = spTime.getSelectedItem().toString();
+                initRecyclerView();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+//        this.venue = spVenue.getSelectedItem().toString();
         this.ibAddUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(AdminDateSelected.this, AdminAddtoSched.class);
                 intent.putExtra("DateSelected", date);
+                intent.putExtra("TimeSelected", time);
+                intent.putExtra("SeconDoseDate", secondDate);
                 intent.putExtra("VenueSelected", venue);
                 startActivity(intent);
             }

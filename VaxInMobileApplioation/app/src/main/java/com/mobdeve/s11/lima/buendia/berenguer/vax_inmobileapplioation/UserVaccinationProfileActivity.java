@@ -60,7 +60,7 @@ public class UserVaccinationProfileActivity extends AppCompatActivity {
                 Log.e("HELLO","I AM HEREEE");
 
                 if(userProfile != null){
-                    tvName.setText(userProfile.firstname + " "+ userProfile.lastname);
+                    tvName.setText(userProfile.firstname + " "+userProfile.middlename+" "+ userProfile.lastname);
                     tvBday.setText(userProfile.bday);
                     tvSex.setText(userProfile.sex);
                     tvEmail.setText(userProfile.email);

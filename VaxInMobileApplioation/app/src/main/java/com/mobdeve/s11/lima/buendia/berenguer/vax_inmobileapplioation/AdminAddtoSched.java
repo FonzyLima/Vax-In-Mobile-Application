@@ -29,9 +29,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class AdminAddtoSched extends AppCompatActivity {
-    private TextView tvDate, tvVenue;
+    private TextView tvDate, tvTime, tvVenue;
     private Spinner spVenue;
     private Button btnAddtoSched;
 
@@ -41,7 +42,8 @@ public class AdminAddtoSched extends AppCompatActivity {
     private UsersAddAdapter usersAddAdapter;
     private ArrayList<Users> usersArrayList;
     private Intent incomingIntent;
-    private String date, venue;
+    private String date,secondDate, time, venue;
+    String addUsersFirstName, addUsersMiddleName, addUsersLastName, addUsersNumber;
     private int i;
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app");
@@ -52,15 +54,20 @@ public class AdminAddtoSched extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_addtosched);
-
         this.usersArrayList = new ArrayList<>();
+
         incomingIntent = getIntent();
         this.date = incomingIntent.getStringExtra("DateSelected");
+        this.secondDate = incomingIntent.getStringExtra("SeconDate");
         this.venue = incomingIntent.getStringExtra("VenueSelected");
+        this.time = incomingIntent.getStringExtra("TimeSelected");
+
         this.tvDate = findViewById(R.id.tv_addtosched_date);
         this.tvDate.setText(this.date);
         this.tvVenue = findViewById(R.id.tv_addtosched_venue);
         this.tvVenue.setText(this.venue);
+        this.tvTime = findViewById(R.id.tv_addtosched_time);
+        this.tvTime.setText(this.time);
         this.initRecyclerView();
         this.btnAddtoSched = findViewById(R.id.btn_addtosched);
         this.btnAddtoSched.setOnClickListener(new View.OnClickListener() {
@@ -71,25 +78,39 @@ public class AdminAddtoSched extends AppCompatActivity {
                         HashMap hashMap = new HashMap();
                         hashMap.put("isScheduled", true);
                         hashMap.put("firstSchedule",date);
+                        hashMap.put("firstTime",time);
+                        hashMap.put("secondSchedule",secondDate);
+                        hashMap.put("secondTime",time);
                         hashMap.put("vacSite",venue);
+
+                        addUsersFirstName = usersArrayList.get(i).firstname;
+                        addUsersMiddleName = usersArrayList.get(i).middlename;
+                        addUsersLastName = usersArrayList.get(i).lastname;
+                        addUsersNumber = usersArrayList.get(i).phone;
+
                         databaseReference.child(usersArrayList.get(i).uID).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener() {
                             @Override
                             public void onComplete(@NonNull Task task) {
                                 if(task.isSuccessful()){
                                     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
                                         if(checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
-                                            sendSms();
-                                            
+                                            sendSms(addUsersNumber,addUsersFirstName.toUpperCase(Locale.ROOT) + " " + addUsersMiddleName.toUpperCase(Locale.ROOT)+" "+addUsersLastName.toUpperCase(Locale.ROOT), date, secondDate, time, venue);
+                                            Intent intent = new Intent(AdminAddtoSched.this, AdminDateSelected.class);
+                                            intent.putExtra("DateSelected",date);
+                                            startActivity(intent);
+
                                         }
                                         else{
                                             requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
+
                                         }
                                     }
 
                                 }
-                                }
-                            }
+                            };
+
                         });
+                        usersAddAdapter.notifyItemChanged(i);
                     }
                 }
             }
@@ -126,13 +147,12 @@ public class AdminAddtoSched extends AppCompatActivity {
         });
     }
 
-    private void sendSms(){
+    private void sendSms(String number,String name, String firstDate, String secondDate, String time, String venue){
+        String message = "[VACCINATION SCHEDULE]\n\nGood day" + name + "!\n\nThanks for registering for your COVID-19 vaccine. Your vaccination schedule is shown below. Please refer to the following details:\n\nDate:" + firstDate + "\nTime:" + time + "\nVenue:" + venue + "\n\nPlease bring a valid ID, ballpen, and hand sanitizer. Come on your designated time and don't forget to wear face mask and face shield.\n\nStay safe!";
 
         try{
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage("09176380810",null,"BAKA VAX IN SMS TO", null, null);
-            smsManager.sendTextMessage("09278372235",null,"BAKA VAX IN SMS TO", null, null);
-            smsManager.sendTextMessage("09162477077",null,"BAKA VAX IN SMS TO", null, null);
+            smsManager.sendTextMessage("09162477077",null,message, null, null);
 
             Log.e("TEXT","WORKED TEXT");
         }

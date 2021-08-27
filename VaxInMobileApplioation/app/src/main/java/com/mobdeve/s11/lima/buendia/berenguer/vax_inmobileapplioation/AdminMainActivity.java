@@ -2,7 +2,9 @@ package com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CalendarView;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,9 +22,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Set;
 
 public class AdminMainActivity extends AppCompatActivity {
     private CalendarView cvScheduler;
+    private ImageView ivAdminSettings;
     private RecyclerView rvUsers;
     private RecyclerView.LayoutManager adminMainManager;
     private UsersAdapter usersAdapter;
@@ -40,12 +44,23 @@ public class AdminMainActivity extends AppCompatActivity {
         this.cvScheduler = findViewById(R.id.cv_scheduler);
         usersArrayList = new ArrayList<>();
 
+        this.ivAdminSettings = findViewById(R.id.ivAdminMainSettings);
+        this.ivAdminSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminMainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
         this.cvScheduler.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                String date = month+1 +"/"+dayOfMonth+"/"+year;
+                String date = (month%12)+1 +"/"+dayOfMonth+"/"+year;
+                String secondDate = (month%12)+2 + "/"+dayOfMonth+"/"+year;
                 Intent intent = new Intent(AdminMainActivity.this, AdminDateSelected.class);
                 intent.putExtra("DateSelected", date);
+                intent.putExtra("SeconDoseDate", secondDate);
                 startActivity(intent);
             }
         });

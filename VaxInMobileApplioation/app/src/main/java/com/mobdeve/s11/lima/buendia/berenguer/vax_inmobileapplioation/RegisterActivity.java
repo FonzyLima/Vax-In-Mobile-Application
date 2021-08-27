@@ -32,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
 //    public static final String REGISTER_LASTNAME_KEY = "RLastNameKey";
     private FirebaseAuth mAuth;
 
-    private EditText etRegisterFirstName, etRegisterLastName, etRegisterPhone, etRegisterEmail, etRegisterPassword, etRegisterConfirm, etRegisterBday;
+    private EditText etRegisterFirstName, etRegisterMiddleName, etRegisterLastName, etRegisterPhone, etRegisterEmail, etRegisterPassword, etRegisterConfirm, etRegisterBday;
     private Button btnRegisterRegister;
     private TextView tvRegisterLogin;
     private Spinner spinnerSex;
@@ -45,6 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         etRegisterFirstName = findViewById(R.id.et_register_firstname);
+        etRegisterMiddleName = findViewById(R.id.et_register_middlename);
         etRegisterLastName = findViewById(R.id.et_register_lastname);
         etRegisterPhone = findViewById(R.id.et_register_phone);
         etRegisterEmail = findViewById(R.id.et_register_email);
@@ -58,18 +59,11 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegisterRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                    if(checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
-                        sendSms();
-                        validateRegistration();
-                    }
-                    else{
-                        requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
-                    }
+                validateRegistration();
                 }
 
-            }
         });
+
 
         tvRegisterLogin = findViewById(R.id.tv_register_login);
         tvRegisterLogin.setOnClickListener(new View.OnClickListener() {
@@ -79,12 +73,13 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
+    };
 
     private void validateRegistration(){
-        String firstname, lastname, phone, email, password, confirmpass, sex, bday;
+        String firstname, middlename, lastname, phone, email, password, confirmpass, sex, bday;
 
         firstname = etRegisterFirstName.getText().toString().trim();
+        middlename = etRegisterMiddleName.getText().toString().trim();
         lastname = etRegisterLastName.getText().toString().trim();
         phone = etRegisterPhone.getText().toString().trim();
         email = etRegisterEmail.getText().toString().trim();
@@ -138,7 +133,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Users user = new Users(firstname,lastname,email, phone, sex,bday,FirebaseAuth.getInstance().getUid());
+                    Users user = new Users(firstname,middlename, lastname,email, phone, sex,bday,FirebaseAuth.getInstance().getUid());
                     mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
