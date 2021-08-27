@@ -29,7 +29,7 @@
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="500dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/border_settings"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,11 +52,23 @@
             android:textSize="30sp" />
 
         <TextView
+            android:id="@+id/tv_confirmdose_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Search User to Confirm"
+            android:textColor="@color/darkblue"
+            android:textSize="15sp" />
+
+        <TextView
             android:id="@+id/tv_confirmdose_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:fontFamily="@font/poppins"
             android:text="Email"
@@ -65,29 +77,6 @@
 
         <EditText
             android:id="@+id/et_confirmdose_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/et_borders"
-            android:ems="10"
-            android:inputType="textWebEmailAddress|textEmailAddress"
-            android:padding="8dp" />
-
-        <TextView
-            android:id="@+id/tv_confirmdose_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="2dp"
-            android:fontFamily="@font/poppins"
-            android:text="Password"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
-
-        <EditText
-            android:id="@+id/et_confirmdose_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
