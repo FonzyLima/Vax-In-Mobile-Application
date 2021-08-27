@@ -3,6 +3,7 @@ package com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ImageView;
 
@@ -26,6 +27,7 @@ import java.util.Locale;
 public class AdminMainActivity extends AppCompatActivity {
     private CalendarView cvScheduler;
     private ImageView ivAdminSettings;
+    private Button btnConfirmDose;
     private RecyclerView rvUsers;
     private RecyclerView.LayoutManager adminMainManager;
     private UsersAdapter usersAdapter;
@@ -60,6 +62,14 @@ public class AdminMainActivity extends AppCompatActivity {
                 Intent intent = new Intent(AdminMainActivity.this, AdminDateSelected.class);
                 intent.putExtra("DateSelected", dateConverter(date));
                 intent.putExtra("SeconDoseDate", dateConverter(secondDate));
+                startActivity(intent);
+            }
+        });
+        this.btnConfirmDose = findViewById(R.id.btn_main_confirmdose);
+        this.btnConfirmDose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminMainActivity.this, ConfirmDosesActivity.class);
                 startActivity(intent);
             }
         });

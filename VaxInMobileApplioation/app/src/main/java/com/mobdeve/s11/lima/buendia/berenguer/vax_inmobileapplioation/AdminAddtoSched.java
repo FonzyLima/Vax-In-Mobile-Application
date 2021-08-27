@@ -59,7 +59,7 @@ public class AdminAddtoSched extends AppCompatActivity {
 
         incomingIntent = getIntent();
         this.date = incomingIntent.getStringExtra("DateSelected");
-        this.secondDate = incomingIntent.getStringExtra("SeconDate");
+        this.secondDate = incomingIntent.getStringExtra("SeconDoseDate");
         this.venue = incomingIntent.getStringExtra("VenueSelected");
         this.time = incomingIntent.getStringExtra("TimeSelected");
 

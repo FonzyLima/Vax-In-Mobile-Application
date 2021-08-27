@@ -113,7 +113,7 @@ public class AdminDateSelected extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Users user = dataSnapshot.getValue(Users.class);
                     if (user.isRegistered && user.isScheduled && !user.isAdmin) {
-                        if(user.firstSchedule == date && user.vacSite == spVenue.getSelectedItem().toString()){
+                        if(user.firstSchedule == date || user.secondSchedule == date){
                             usersArrayList.add(user);
                         }
 
