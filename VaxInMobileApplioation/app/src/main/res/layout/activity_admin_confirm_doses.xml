@@ -95,7 +95,7 @@
             android:layout_marginRight="20dp"
             android:backgroundTint="@color/pink"
             android:fontFamily="@font/poppins"
-            android:text="Confirm First Dose"
+            android:text="Confirm Dose"
             android:visibility="visible" />
 
         <Button

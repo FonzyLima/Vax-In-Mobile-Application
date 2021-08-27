@@ -153,7 +153,7 @@
 
             <TextView
                 android:id="@+id/tv_vaxprof_personalinfo_priority_text"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
@@ -170,7 +170,7 @@
 
             <TextView
                 android:id="@+id/tv_vaxprof_personalinfo_birthday_text"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
@@ -185,7 +185,7 @@
 
             <TextView
                 android:id="@+id/tv_vaxprof_personalinfo_name_text"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
@@ -200,7 +200,7 @@
 
             <TextView
                 android:id="@+id/tv_vaxprof_personalinfo_phone_text"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
@@ -215,7 +215,7 @@
 
             <TextView
                 android:id="@+id/tv_vaxprof_personalinfo_email_text"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
@@ -230,7 +230,7 @@
 
             <TextView
                 android:id="@+id/tv_vaxprof_personalinfo_gender_text"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
@@ -329,7 +329,7 @@
 
             <TextView
                 android:id="@+id/tv_vaxprof_address_city_text"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
@@ -344,7 +344,7 @@
 
             <TextView
                 android:id="@+id/tv_vaxprof_address_barangay_text"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
@@ -359,7 +359,7 @@
 
             <TextView
                 android:id="@+id/tv_vaxprof_address_street_text"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
@@ -374,7 +374,7 @@
 
             <TextView
                 android:id="@+id/tv_vaxprof_address_number_text"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
@@ -521,7 +521,7 @@
 
             <TextView
                 android:id="@+id/tv_vaxprof_vaxsched_site_text"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
@@ -536,7 +536,7 @@
 
             <TextView
                 android:id="@+id/tv_vaxprof_vaxsched_date_text1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
@@ -551,7 +551,7 @@
 
             <TextView
                 android:id="@+id/tv_vaxprof_vaxsched_time_text1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
@@ -566,7 +566,7 @@
 
             <TextView
                 android:id="@+id/tv_vaxprof_vaxsched_date_text2"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
@@ -581,7 +581,7 @@
 
             <TextView
                 android:id="@+id/tv_vaxprof_vaxsched_time_text2"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
