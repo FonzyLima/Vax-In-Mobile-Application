@@ -94,10 +94,11 @@ public class AdminAddtoSched extends AppCompatActivity {
                                 if(task.isSuccessful()){
                                     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
                                         if(checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
-                                            sendSms(addUsersNumber,addUsersFirstName.toUpperCase(Locale.ROOT) + " " + addUsersMiddleName.toUpperCase(Locale.ROOT)+" "+addUsersLastName.toUpperCase(Locale.ROOT), date, secondDate, time, venue);
+                                            sendSms(addUsersNumber,addUsersFirstName.toUpperCase(Locale.ROOT) + " "+addUsersLastName.toUpperCase(Locale.ROOT), date, secondDate, time, venue);
                                             Intent intent = new Intent(AdminAddtoSched.this, AdminDateSelected.class);
                                             intent.putExtra("DateSelected",date);
                                             startActivity(intent);
+                                            finish();
 
                                         }
                                         else{
@@ -113,8 +114,9 @@ public class AdminAddtoSched extends AppCompatActivity {
                         usersAddAdapter.notifyItemChanged(i);
                     }
                 }
-        });
+        };
 
+    });
     }
 
     private void initRecyclerView(){
@@ -147,7 +149,7 @@ public class AdminAddtoSched extends AppCompatActivity {
     }
 
     private void sendSms(String number,String name, String firstDate, String secondDate, String time, String venue){
-        String message = "[VACCINATION SCHEDULE]\n\nGood day" + name + "!\n\nThanks for registering for your COVID-19 vaccine. Your vaccination schedule is shown below. Please refer to the following details:\n\nDate:" + firstDate + "\nTime:" + time + "\nVenue:" + venue + "\n\nPlease bring a valid ID, ballpen, and hand sanitizer. Come on your designated time and don't forget to wear face mask and face shield.\n\nStay safe!";
+        String message = "Good day" + name + "!\n\nYour vaccination schedule is shown below.\n\nDate:" + firstDate + "\nTime:" + time + "\nVenue:" + venue;
 
         try{
             SmsManager smsManager = SmsManager.getDefault();

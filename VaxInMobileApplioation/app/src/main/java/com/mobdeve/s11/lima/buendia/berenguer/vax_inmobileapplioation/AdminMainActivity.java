@@ -59,17 +59,17 @@ public class AdminMainActivity extends AppCompatActivity {
                 String date = (month%12)+1 +"/"+dayOfMonth+"/"+year;
                 String secondDate = (month%12)+2 + "/"+dayOfMonth+"/"+year;
                 Intent intent = new Intent(AdminMainActivity.this, AdminDateSelected.class);
-                intent.putExtra("DateSelected", date);
-                intent.putExtra("SeconDoseDate", secondDate);
+                intent.putExtra("DateSelected", dateConverter(date));
+                intent.putExtra("SeconDoseDate", dateConverter(secondDate));
                 startActivity(intent);
             }
         });
-        this.initRecyclerView();
+//        this.initRecyclerView();
 
     }
 
     private void initRecyclerView(){
-        this.rvUsers = findViewById(R.id.rv_main_applications);
+
 
         this.adminMainManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         this.rvUsers.setLayoutManager(adminMainManager);
