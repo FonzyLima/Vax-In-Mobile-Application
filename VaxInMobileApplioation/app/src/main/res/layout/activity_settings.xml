@@ -4,50 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#264192"
     tools:context=".SettingsActivity">
-
-    <TextView
-        android:id="@+id/tv_settings_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Settings"
-        android:textColor="#303F88"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline10"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline9"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_settings_logout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
-        android:backgroundTint="#2C408D"
-        android:padding="5dp"
-        android:text="LOGOUT"
-        android:textSize="20sp"
-        android:textStyle="normal"
-        app:cornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline10"
-        app:layout_constraintStart_toStartOf="@+id/guideline9" />
-
-    <TextView
-        android:id="@+id/tv_edit_sms"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/et_borders"
-        android:fontFamily="@font/poppins"
-        android:padding="8dp"
-        android:text="Edit SMS Text Advisory"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline10"
-        app:layout_constraintStart_toStartOf="@+id/guideline9"
-        tools:layout_editor_absoluteY="130dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline9"
@@ -64,5 +22,76 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="379dp"
         app:layout_constraintGuide_percent=".90" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="428dp"
+        android:background="@drawable/border_button_white"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline9"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.39">
+
+        <TextView
+            android:id="@+id/tv_settings_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Settings"
+            android:textColor="@color/pink"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/tv_edit_sms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/row_pink_borders"
+            android:fontFamily="@font/poppins"
+            android:padding="8dp"
+            android:text="EDIT SMS TEXT ADVISORY"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_settings_editsms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:backgroundTint="@color/pink"
+            android:fontFamily="@font/poppins_light"
+            android:padding="5dp"
+            android:text="EDIT SMS TEXT ADVISORY"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:cornerRadius="12dp" />
+
+        <Button
+            android:id="@+id/btn_settings_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="30dp"
+            android:backgroundTint="@color/pink"
+            android:fontFamily="@font/poppins_light"
+            android:padding="5dp"
+            android:text="@string/btn_settings_logout"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:cornerRadius="12dp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
