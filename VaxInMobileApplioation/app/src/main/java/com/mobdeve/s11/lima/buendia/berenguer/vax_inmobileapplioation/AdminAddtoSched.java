@@ -193,11 +193,11 @@ public class AdminAddtoSched extends AppCompatActivity {
     }
 
     private void sendSms(String number,String name, String firstDate, String secondDate, String time, String venue){
-        String message = "Good day" + name + "!\n\nYour vaccination schedule is shown below.\n\nDate:" + firstDate + "\nTime:" + time + "\nVenue:" + venue;
+        String message = "Good day " + name + "!\n\nYour vaccination schedule is shown below.\n\nDate: " + firstDate + "\nTime: " + time + "\nVenue: " + venue;
 
         try{
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage("09162477077",null,message, null, null);
+            smsManager.sendTextMessage(number,null,message, null, null);
 
             Log.e("TEXT","WORKED TEXT");
         }
