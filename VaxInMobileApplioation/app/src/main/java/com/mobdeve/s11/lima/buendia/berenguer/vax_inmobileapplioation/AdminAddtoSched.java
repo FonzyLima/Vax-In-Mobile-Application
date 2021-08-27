@@ -72,18 +72,6 @@ public class AdminAddtoSched extends AppCompatActivity {
         this.initRecyclerView();
 
         this.spFilter = findViewById(R.id.spinner_addtosched_filter);
-
-        this.spFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                filterRecyclerView(spFilter.getSelectedItem().toString().substring(0,2));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
         this.btnAddtoSched = findViewById(R.id.btn_addtosched);
         this.btnAddtoSched.setOnClickListener(new View.OnClickListener() {
             @Override
