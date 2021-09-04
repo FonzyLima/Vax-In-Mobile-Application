@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
         this.etEmail = findViewById(R.id.et_login_email);
         this.etPassword = findViewById(R.id.et_login_password);
+
+        // Redirects to Register Activity
         this.tvRegister = findViewById(R.id.tv_login_register);
         this.tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
         this.btnLogin = findViewById(R.id.btn_login_login);
         this.btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Function that validates user's inputs and logs in the user
     private void userLogin() {
         String email, username, password;
 
@@ -103,8 +107,6 @@ public class MainActivity extends AppCompatActivity {
                                         Intent intent = new Intent(MainActivity.this, AdminMainActivity.class);
                                         startActivity(intent);
                                         finish();
-
-
                                     }
                                     else{
                                         Toast.makeText(MainActivity.this,"LOGGED IN",Toast.LENGTH_LONG).show();

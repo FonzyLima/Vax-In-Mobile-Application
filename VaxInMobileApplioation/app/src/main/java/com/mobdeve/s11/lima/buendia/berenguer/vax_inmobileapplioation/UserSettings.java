@@ -1,5 +1,7 @@
 package com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,11 +27,21 @@ public class UserSettings extends AppCompatActivity {
         this.btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAuth.signOut();
-                Intent intent = new Intent(UserSettings.this, MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                finish();
+                new AlertDialog.Builder(UserSettings.this).setIcon(R.drawable.common_google_signin_btn_icon_dark_normal)
+                        .setTitle("Logout Activity").setMessage("Are you sure you want to logout?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                mAuth.signOut();
+                                Intent intent = new Intent(UserSettings.this, MainActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+
             }
         });
     }

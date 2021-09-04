@@ -83,4 +83,10 @@ public class UsersAddAdapter extends RecyclerView.Adapter<UsersAddViewHolder> {
     public int getItemCount() {
         return this.dataUsers.size();
     }
+
+    public void setData(ArrayList<Users> dataUsers){
+        this.dataUsers.clear();
+        this.dataUsers.addAll(dataUsers);
+        notifyDataSetChanged();
+    }
 }

@@ -55,24 +55,44 @@ public class AdminAddtoSched extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_addtosched);
-        this.usersArrayList = new ArrayList<>();
-
-        incomingIntent = getIntent();
-        this.date = incomingIntent.getStringExtra("DateSelected");
-        this.secondDate = incomingIntent.getStringExtra("SeconDoseDate");
-        this.venue = incomingIntent.getStringExtra("VenueSelected");
-        this.time = incomingIntent.getStringExtra("TimeSelected");
-
-        this.tvDate = findViewById(R.id.tv_addtosched_date);
-        this.tvDate.setText(this.date);
-        this.tvVenue = findViewById(R.id.tv_addtosched_venue);
-        this.tvVenue.setText(this.venue);
-        this.tvTime = findViewById(R.id.tv_addtosched_time);
-        this.tvTime.setText(this.time);
+        this.initComponents();
         this.initRecyclerView();
 
-        this.spFilter = findViewById(R.id.spinner_addtosched_filter);
-        this.btnAddtoSched = findViewById(R.id.btn_addtosched);
+        this.spFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String chosenFilter = spFilter.getSelectedItem().toString();
+                usersArrayList.clear();
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                            Users user = dataSnapshot.getValue(Users.class);
+                            if (user.isRegistered && !user.isScheduled && !user.isAdmin && user.priority.equals(chosenFilter)){
+
+                                usersArrayList.add(user);
+                            }
+
+                        }
+
+                        usersAddAdapter.setData(usersArrayList);
+                        usersAddAdapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
         this.btnAddtoSched.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,6 +142,25 @@ public class AdminAddtoSched extends AppCompatActivity {
     });
     }
 
+    private void initComponents(){
+        this.usersArrayList = new ArrayList<>();
+        incomingIntent = getIntent();
+        this.date = incomingIntent.getStringExtra("DateSelected");
+        this.secondDate = incomingIntent.getStringExtra("SeconDoseDate");
+        this.venue = incomingIntent.getStringExtra("VenueSelected");
+        this.time = incomingIntent.getStringExtra("TimeSelected");
+
+        this.tvDate = findViewById(R.id.tv_addtosched_date);
+        this.tvDate.setText(this.date);
+        this.tvVenue = findViewById(R.id.tv_addtosched_venue);
+        this.tvVenue.setText(this.venue);
+        this.tvTime = findViewById(R.id.tv_addtosched_time);
+        this.tvTime.setText(this.time);
+
+        this.spFilter = findViewById(R.id.spinner_addtosched_filter);
+
+
+    }
     private void initRecyclerView(){
         this.rvAddtoSchedUserRow = findViewById(R.id.rv_addtosched_userrow);
         this.adminAddManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
@@ -130,9 +169,12 @@ public class AdminAddtoSched extends AppCompatActivity {
         this.usersAddAdapter = new UsersAddAdapter(this.usersArrayList);
         this.rvAddtoSchedUserRow.setAdapter(usersAddAdapter);
 
+        this.btnAddtoSched = findViewById(R.id.btn_addtosched);
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //usersArrayList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Users user = dataSnapshot.getValue(Users.class);
                     if (user.isRegistered && !user.isScheduled && !user.isAdmin) {
@@ -141,6 +183,7 @@ public class AdminAddtoSched extends AppCompatActivity {
                     }
 
                 }
+                usersAddAdapter.setData(usersArrayList);
                 usersAddAdapter.notifyDataSetChanged();
             }
 

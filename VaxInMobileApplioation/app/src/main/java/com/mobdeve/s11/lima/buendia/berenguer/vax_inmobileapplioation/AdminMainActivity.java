@@ -1,5 +1,7 @@
 package com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,12 +38,14 @@ public class AdminMainActivity extends AppCompatActivity {
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app");
     private DatabaseReference databaseReference = database.getReference().child("Users");
+    private FirebaseAuth mAuth;
 
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_main);
+        this.mAuth = FirebaseAuth.getInstance();
 
         this.cvScheduler = findViewById(R.id.cv_scheduler);
         usersArrayList = new ArrayList<>();
@@ -73,9 +78,12 @@ public class AdminMainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
 //        this.initRecyclerView();
 
     }
+
 
     private void initRecyclerView(){
 

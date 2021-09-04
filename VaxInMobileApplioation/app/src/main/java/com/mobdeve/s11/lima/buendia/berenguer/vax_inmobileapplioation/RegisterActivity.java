@@ -75,6 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
     };
 
+    // Validates user's inputs and registers data to database
     private void validateRegistration(){
         String firstname, middlename, lastname, phone, email, password, confirmpass, sex, bday;
 

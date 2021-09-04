@@ -113,12 +113,10 @@ public class AdminDateSelected extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Users user = dataSnapshot.getValue(Users.class);
                     if (user.isRegistered && user.isScheduled && !user.isAdmin) {
-                        if(user.firstSchedule == date || user.secondSchedule == date){
+                        if(user.firstSchedule.equals(date) || user.secondSchedule.equals(date)){
                             usersArrayList.add(user);
                         }
-
                     }
-
                 }
                 usersAdapter.notifyDataSetChanged();
             }
