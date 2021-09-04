@@ -62,7 +62,7 @@ public class UsersAddAdapter extends RecyclerView.Adapter<UsersAddViewHolder> {
         holder.setTvBarangay(user.barangay);
         holder.setTvCity(user.city);
         holder.setTvSex(user.sex);
-
+        holder.setIvAvatar(user.sex);
         holder.setIvAddbutton(user.isSelected);
 
     }
