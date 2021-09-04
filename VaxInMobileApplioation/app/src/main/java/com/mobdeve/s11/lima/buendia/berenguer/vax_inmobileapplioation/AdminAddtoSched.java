@@ -151,34 +151,6 @@ public class AdminAddtoSched extends AppCompatActivity {
         });
     }
 
-    private void filterRecyclerView(String filter){
-        this.rvAddtoSchedUserRow = findViewById(R.id.rv_addtosched_userrow);
-        this.adminAddManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
-        this.rvAddtoSchedUserRow.setLayoutManager(this.adminAddManager);
-
-        this.usersAddAdapter = new UsersAddAdapter(this.usersArrayList);
-        this.rvAddtoSchedUserRow.setAdapter(usersAddAdapter);
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Users user = dataSnapshot.getValue(Users.class);
-                    if (user.priority.equals(filter) && !user.isScheduled) {
-                        usersArrayList.add(user);
-
-                    }
-
-                }
-                usersAddAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
 
     private void sendSms(String number,String name, String firstDate, String secondDate, String time, String venue){
         String message = "Good day " + name + "!\n\nYour vaccination schedule is shown below.\n\nDate: " + firstDate + "\nTime: " + time + "\nVenue: " + venue;
