@@ -72,6 +72,42 @@ public class AdminAddtoSched extends AppCompatActivity {
         this.initRecyclerView();
 
         this.spFilter = findViewById(R.id.spinner_addtosched_filter);
+        this.spFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String chosenFilter = spFilter.getSelectedItem().toString().substring(0,2);
+                if(position != 0){
+                    usersArrayList.clear();
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                Users user = dataSnapshot.getValue(Users.class);
+                                if (user.isRegistered && !user.isScheduled && !user.isAdmin && user.priority.equals(chosenFilter)) {
+                                    usersArrayList.add(user);
+                                }
+
+                            }
+                            usersAddAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
         this.btnAddtoSched = findViewById(R.id.btn_addtosched);
         this.btnAddtoSched.setOnClickListener(new View.OnClickListener() {
             @Override
