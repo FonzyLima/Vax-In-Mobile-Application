@@ -40,18 +40,6 @@ public class UsersAddAdapter extends RecyclerView.Adapter<UsersAddViewHolder> {
         usersAddViewHolder.setAddClick(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                HashMap hashMap = new HashMap();
-//                hashMap.put("isSelected",!dataUsers.get(usersAddViewHolder.getBindingAdapterPosition()).isSelected);
-//
-//                databaseReference.child(dataUsers.get(usersAddViewHolder.getBindingAdapterPosition()).uID).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener() {
-//                    @Override
-//                    public void onComplete(@NonNull Task task) {
-//                        if(task.isSuccessful()){
-//                            Log.e("ADDED USER",dataUsers.get(usersAddViewHolder.getBindingAdapterPosition()).firstname);
-//
-//                        }
-//                    }
-//                });
                 dataUsers.get(usersAddViewHolder.getBindingAdapterPosition()).isSelected = !dataUsers.get(usersAddViewHolder.getBindingAdapterPosition()).isSelected;
                 notifyItemChanged(usersAddViewHolder.getBindingAdapterPosition());
 
@@ -74,7 +62,7 @@ public class UsersAddAdapter extends RecyclerView.Adapter<UsersAddViewHolder> {
         holder.setTvBarangay(user.barangay);
         holder.setTvCity(user.city);
         holder.setTvSex(user.sex);
-
+        holder.setIvAvatar(user.sex);
         holder.setIvAddbutton(user.isSelected);
 
     }

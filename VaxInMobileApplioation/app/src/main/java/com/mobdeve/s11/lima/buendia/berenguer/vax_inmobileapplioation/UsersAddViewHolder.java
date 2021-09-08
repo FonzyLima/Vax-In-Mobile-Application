@@ -46,9 +46,17 @@ public class UsersAddViewHolder extends RecyclerView.ViewHolder {
         this.tvCity.setText(city);
     }
 
-    public void setIvAvatar(int picture){
-        this.ivAvatar.setImageResource(picture);
+    public void setIvAvatar(String sex){
+
+        if(sex.equals("Male")){
+            this.ivAvatar.setImageResource(R.drawable.mavatar);
+        }
+        else{
+            this.ivAvatar.setImageResource(R.drawable.favatar);
+        }
+
     }
+
     public void setIvAddbutton(boolean added){
         if(added){
             this.ivAddbutton.setImageResource(R.drawable.row_check);

@@ -72,6 +72,42 @@ public class AdminAddtoSched extends AppCompatActivity {
         this.initRecyclerView();
 
         this.spFilter = findViewById(R.id.spinner_addtosched_filter);
+        this.spFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String chosenFilter = spFilter.getSelectedItem().toString().substring(0,2);
+                if(position != 0){
+                    usersArrayList.clear();
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                Users user = dataSnapshot.getValue(Users.class);
+                                if (user.isRegistered && !user.isScheduled && !user.isAdmin && user.priority.equals(chosenFilter)) {
+                                    usersArrayList.add(user);
+                                }
+
+                            }
+                            usersAddAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
         this.btnAddtoSched = findViewById(R.id.btn_addtosched);
         this.btnAddtoSched.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,34 +187,6 @@ public class AdminAddtoSched extends AppCompatActivity {
         });
     }
 
-    private void filterRecyclerView(String filter){
-        this.rvAddtoSchedUserRow = findViewById(R.id.rv_addtosched_userrow);
-        this.adminAddManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
-        this.rvAddtoSchedUserRow.setLayoutManager(this.adminAddManager);
-
-        this.usersAddAdapter = new UsersAddAdapter(this.usersArrayList);
-        this.rvAddtoSchedUserRow.setAdapter(usersAddAdapter);
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Users user = dataSnapshot.getValue(Users.class);
-                    if (user.priority.equals(filter) && !user.isScheduled) {
-                        usersArrayList.add(user);
-
-                    }
-
-                }
-                usersAddAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
 
     private void sendSms(String number,String name, String firstDate, String secondDate, String time, String venue){
         String message = "Good day " + name + "!\n\nYour vaccination schedule is shown below.\n\nDate: " + firstDate + "\nTime: " + time + "\nVenue: " + venue;
