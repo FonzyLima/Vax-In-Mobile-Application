@@ -73,39 +73,13 @@ public class AdminMainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-//        this.initRecyclerView();
 
     }
 
-    private void initRecyclerView(){
-
-
-        this.adminMainManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        this.rvUsers.setLayoutManager(adminMainManager);
-
-        this.usersAdapter = new UsersAdapter(this.usersArrayList);
-        this.rvUsers.setAdapter(this.usersAdapter);
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    Users user = dataSnapshot.getValue(Users.class);
-                    if(user.isRegistered && !user.isScheduled && !user.isAdmin){
-                        usersArrayList.add(user);
-                    }
-                }
-                usersAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-    }
-
+    /*
+    Converts given parameter string to our custom format
+    Returns formatted date string
+     */
     public String dateConverter(String d) {
         String finaldate = "";
         try {

@@ -71,6 +71,9 @@ public class AdminAddtoSched extends AppCompatActivity {
         this.tvTime.setText(this.time);
         this.initRecyclerView();
 
+        /*
+        Filters the list of registered users by their priority level
+        */
         this.spFilter = findViewById(R.id.spinner_addtosched_filter);
         this.spFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -98,6 +101,27 @@ public class AdminAddtoSched extends AppCompatActivity {
                     });
 
                 }
+                else{
+                    usersArrayList.clear();
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                Users user = dataSnapshot.getValue(Users.class);
+                                if (user.isRegistered && !user.isScheduled && !user.isAdmin) {
+                                    usersArrayList.add(user);
+                                }
+
+                            }
+                            usersAddAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
 
             }
 
@@ -107,7 +131,9 @@ public class AdminAddtoSched extends AppCompatActivity {
             }
         });
 
-
+        /*
+        Assigns all of the selected users to the selected Vaccine Site and Schedule
+         */
         this.btnAddtoSched = findViewById(R.id.btn_addtosched);
         this.btnAddtoSched.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,7 +183,9 @@ public class AdminAddtoSched extends AppCompatActivity {
 
     });
     }
-
+    /*
+    Initializes the recycler view with the default user list
+     */
     private void initRecyclerView(){
         this.rvAddtoSchedUserRow = findViewById(R.id.rv_addtosched_userrow);
         this.adminAddManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
@@ -187,7 +215,9 @@ public class AdminAddtoSched extends AppCompatActivity {
         });
     }
 
-
+    /*
+    Sends a personalized sms message to the selected user using their registered phone number
+     */
     private void sendSms(String number,String name, String firstDate, String secondDate, String time, String venue){
         String message = "Good day " + name + "!\n\nYour vaccination schedule is shown below.\n\nDate: " + firstDate + "\nTime: " + time + "\nVenue: " + venue;
 

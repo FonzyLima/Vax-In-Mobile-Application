@@ -54,12 +54,36 @@ public class AdminDateSelected extends AppCompatActivity {
         this.secondDate = incomingIntent.getStringExtra("SeconDoseDate");
         this.tvDateSelected.setText(date);
 
+        this.initRecyclerView();
 
+        /*
+        Filters the users to the ones who are scheduled to be vaccinated at the selected site
+         */
         spVenue.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 venue = spVenue.getSelectedItem().toString();
-                initRecyclerView();
+                if(position != 0){
+                    usersArrayList.clear();
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                Users user = dataSnapshot.getValue(Users.class);
+                                if (user.isRegistered && !user.isScheduled && !user.isAdmin && user.vacSite.equals(venue)) {
+                                    usersArrayList.add(user);
+                                }
+
+                            }
+                            usersAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
             }
 
             @Override
@@ -68,12 +92,34 @@ public class AdminDateSelected extends AppCompatActivity {
             }
         });
 
-
+        /*
+        Filters the users to the ones who are scheduled to be vaccinated at the selected site and selected time
+         */
         spTime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 time = spTime.getSelectedItem().toString();
-                initRecyclerView();
+                if(position != 0){
+                    usersArrayList.clear();
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                Users user = dataSnapshot.getValue(Users.class);
+                                if (user.isRegistered && !user.isScheduled && !user.isAdmin && user.vacSite.equals(venue) && user.firstTime.equals(time) || user.secondTime.equals(time)) {
+                                    usersArrayList.add(user);
+                                }
+
+                            }
+                            usersAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
             }
 
             @Override
@@ -82,6 +128,9 @@ public class AdminDateSelected extends AppCompatActivity {
             }
         });
 
+        /*
+        Redirects user to AdminAddtoSched activity while passing the selected date, venue, and time.
+         */
         this.ibAddUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,10 +143,13 @@ public class AdminDateSelected extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        this.initRecyclerView();
+
 
     }
 
+    /*
+    Initializes recyclerview with default list of users who are scheduled to be vaccinated on the selected date
+     */
     private void initRecyclerView() {
 
         this.rvLocations = findViewById(R.id.rv_date_userrow);

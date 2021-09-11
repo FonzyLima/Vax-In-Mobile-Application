@@ -13,6 +13,7 @@ public class AdminSettingsActivity extends AppCompatActivity {
 
     private Button btnLogout, btnEditSms;
     private FirebaseAuth mAuth;
+    private Intent incomingIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
