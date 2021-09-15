@@ -43,8 +43,6 @@ public class UsersAddAdapter extends RecyclerView.Adapter<UsersAddViewHolder> {
                 dataUsers.get(usersAddViewHolder.getBindingAdapterPosition()).isSelected = !dataUsers.get(usersAddViewHolder.getBindingAdapterPosition()).isSelected;
                 notifyItemChanged(usersAddViewHolder.getBindingAdapterPosition());
 
-
-
             }
 
 
