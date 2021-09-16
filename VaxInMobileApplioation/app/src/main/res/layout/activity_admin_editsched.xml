@@ -106,12 +106,22 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_editsched_userrow"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/gl_editsched_right"
         app:layout_constraintStart_toStartOf="@+id/gl_editsched_left"
         app:layout_constraintTop_toBottomOf="@+id/cb_editsched_selectall" />
+
+    <Button
+        android:id="@+id/btn_editsched"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/pink"
+        android:text="Delete from Schedule"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/gl_editsched_right"
+        app:layout_constraintStart_toStartOf="@+id/gl_editsched_left" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_editsched_left"
