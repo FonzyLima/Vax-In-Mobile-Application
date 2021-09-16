@@ -1,5 +1,6 @@
 package com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -41,6 +42,7 @@ public class AdminMainActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_main);
+        requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
 
         this.cvScheduler = findViewById(R.id.cv_scheduler);
         usersArrayList = new ArrayList<>();

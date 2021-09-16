@@ -2,9 +2,11 @@ package com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -14,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class UserSettings extends AppCompatActivity {
     private Button btnLogout;
+    private ImageButton ibBack;
     private FirebaseAuth mAuth;
 
     @Override
@@ -49,5 +52,17 @@ public class UserSettings extends AppCompatActivity {
 
             }
         });
+
+        this.ibBack = findViewById(R.id.ib_usersettings_back);
+        this.ibBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserSettings.this, UserMainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
     }
 }

@@ -28,7 +28,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull UsersViewHolder holder, int position) {
         Users user = dataUsers.get(position);
-        holder.setTvName(user.firstname+user.lastname);
+        holder.setTvName(user.firstname+" "+user.lastname);
         holder.setTvBday(user.bday);
         holder.setTvPriority(user.priority);
         holder.setTvBarangay(user.barangay);

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ public class AdminAddtoSched extends AppCompatActivity {
     private TextView tvDate, tvTime, tvVenue;
     private Spinner spFilter;
     private Button btnAddtoSched;
+    private ImageButton ibBack;
 
     private RecyclerView rvAddtoSchedUserRow;
     private RecyclerView.LayoutManager adminAddManager;
@@ -140,6 +142,7 @@ public class AdminAddtoSched extends AppCompatActivity {
             public void onClick(View v) {
                 for(i=0;i<usersArrayList.size();i++){
                     if(usersArrayList.get(i).isSelected){
+
                         HashMap hashMap = new HashMap();
                         hashMap.put("isScheduled", true);
                         hashMap.put("firstSchedule",date);
@@ -148,39 +151,52 @@ public class AdminAddtoSched extends AppCompatActivity {
                         hashMap.put("secondTime",time);
                         hashMap.put("vacSite",venue);
 
-                        addUsersFirstName = usersArrayList.get(i).firstname;
-                        addUsersMiddleName = usersArrayList.get(i).middlename;
-                        addUsersLastName = usersArrayList.get(i).lastname;
-                        addUsersNumber = usersArrayList.get(i).phone;
+//                        addUsersFirstName = usersArrayList.get(i).firstname;
+//                        addUsersMiddleName = usersArrayList.get(i).middlename;
+//                        addUsersLastName = usersArrayList.get(i).lastname;
+//                        addUsersNumber = usersArrayList.get(i).phone;
 
                         databaseReference.child(usersArrayList.get(i).uID).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener() {
                             @Override
                             public void onComplete(@NonNull Task task) {
                                 if(task.isSuccessful()){
-                                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                                        if(checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
-                                            sendSms(addUsersNumber,addUsersFirstName.toUpperCase(Locale.ROOT) + " "+addUsersLastName.toUpperCase(Locale.ROOT), date, secondDate, time, venue);
-                                            Intent intent = new Intent(AdminAddtoSched.this, AdminDateSelected.class);
-                                            intent.putExtra("DateSelected",date);
-                                            startActivity(intent);
-                                            finish();
 
-                                        }
-                                        else{
-                                            requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
-
-                                        }
-                                    }
 
                                 }
                             };
 
                         });
+                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                            if(checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
+                                sendSms(usersArrayList.get(i).phone,usersArrayList.get(i).firstname.toUpperCase(Locale.ROOT) + " "+usersArrayList.get(i).lastname.toUpperCase(Locale.ROOT), date, secondDate, time, venue);
+
+                            }
+                            else{
+                                requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
+
+                            }
+                        }
                         usersAddAdapter.notifyItemChanged(i);
                     }
                 }
+                Intent intent = new Intent(AdminAddtoSched.this, AdminDateSelected.class);
+                intent.putExtra("DateSelected",date);
+                startActivity(intent);
+                finish();
             };
 
+        });
+
+        this.ibBack = findViewById(R.id.ib_addtosched_back);
+        this.ibBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminAddtoSched.this,AdminDateSelected.class);
+                intent.putExtra("DateSelected",date);
+                intent.putExtra("TimeSelected", time);
+                startActivity(intent);
+                finish();
+            }
         });
     }
     /*

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -35,6 +36,7 @@ public class AdminEditSchedActivity extends AppCompatActivity {
     private TextView tvDate, tvTime, tvVenue;
     private Spinner spFilter;
     private Button btnDeleteSched;
+    private ImageButton ibBack;
 
     private RecyclerView rvDelSchedRow;
     private RecyclerView.LayoutManager adminDelManager;
@@ -87,27 +89,14 @@ public class AdminEditSchedActivity extends AppCompatActivity {
                             hashMap.put("secondTime","TBA");
                             hashMap.put("vacSite","TBA");
 
-                            delUsersFirstName = usersArrayList.get(i).firstname;
-                            delUsersMiddleName = usersArrayList.get(i).middlename;
-                            delUsersLastName = usersArrayList.get(i).lastname;
-                            delUsersNumber = usersArrayList.get(i).phone;
-
                             databaseReference.child(usersArrayList.get(i).uID).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener() {
                                 @Override
                                 public void onComplete(@NonNull Task task) {
                                     if(task.isSuccessful()){
-                                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                                            if(checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
-                                                sendSms(delUsersNumber,delUsersFirstName.toUpperCase(Locale.ROOT)+" "+delUsersLastName.toUpperCase(Locale.ROOT));
-                                                Intent intent = new Intent(AdminEditSchedActivity.this, AdminDateSelected.class);
-                                                intent.putExtra("DateSelected",date);
-                                                startActivity(intent);
-                                                finish();
-                                            }
-
-                                        }
-
-
+                                        Intent intent = new Intent(AdminEditSchedActivity.this, AdminDateSelected.class);
+                                        intent.putExtra("DateSelected",date);
+                                        startActivity(intent);
+                                        finish();
 
                                     }
                                 };
@@ -128,16 +117,10 @@ public class AdminEditSchedActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task task) {
                                     if(task.isSuccessful()){
-                                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                                            if(checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
-                                                sendSms(delUsersNumber,delUsersFirstName.toUpperCase(Locale.ROOT)+" "+delUsersLastName.toUpperCase(Locale.ROOT));
-                                                Intent intent = new Intent(AdminEditSchedActivity.this, AdminDateSelected.class);
-                                                intent.putExtra("DateSelected",date);
-                                                startActivity(intent);
-                                                finish();
-                                            }
-
-                                        }
+                                        Intent intent = new Intent(AdminEditSchedActivity.this, AdminDateSelected.class);
+                                        intent.putExtra("DateSelected",date);
+                                        startActivity(intent);
+                                        finish();
 
                                     }
                                 };
@@ -154,62 +137,80 @@ public class AdminEditSchedActivity extends AppCompatActivity {
 
         this.initRecyclerview();
 
-//        this.spFilter = findViewById(R.id.spinner_editsched_filter);
-//        this.spFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                String chosenFilter = spFilter.getSelectedItem().toString().substring(0,2);
-//                if(position != 0){
-//                    usersArrayList.clear();
-//                    databaseReference.addValueEventListener(new ValueEventListener() {
-//                        @Override
-//                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                                Users user = dataSnapshot.getValue(Users.class);
-//                                if (user.isRegistered && !user.isScheduled && !user.isAdmin && user.priority.equals(chosenFilter)) {
-//                                    usersArrayList.add(user);
-//                                }
-//
-//                            }
-//                            usersDeleteAdapter.notifyDataSetChanged();
-//                        }
-//
-//                        @Override
-//                        public void onCancelled(@NonNull DatabaseError error) {
-//
-//                        }
-//                    });
-//
-//                }
-//                else{
-//                    usersArrayList.clear();
-//                    databaseReference.addValueEventListener(new ValueEventListener() {
-//                        @Override
-//                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                                Users user = dataSnapshot.getValue(Users.class);
-//                                if (user.isRegistered && !user.isScheduled && !user.isAdmin) {
-//                                    usersArrayList.add(user);
-//                                }
-//
-//                            }
-//                            usersDeleteAdapter.notifyDataSetChanged();
-//                        }
-//
-//                        @Override
-//                        public void onCancelled(@NonNull DatabaseError error) {
-//
-//                        }
-//                    });
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
+        this.spFilter = findViewById(R.id.spinner_editsched_filter);
+        this.spFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String chosenFilter = spFilter.getSelectedItem().toString().substring(0,2);
+                if(position != 0){
+                    usersArrayList.clear();
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                Users user = dataSnapshot.getValue(Users.class);
+                                if (user.isRegistered && user.isScheduled && !user.isAdmin && user.priority.equals(chosenFilter)) {
+                                    if((user.firstSchedule.equals(date) && user.firstTime.equals(time)) || (user.secondSchedule.equals(date) && user.secondTime.equals(time))){
+                                        usersArrayList.add(user);
+                                    }
+
+                                }
+
+                            }
+                            usersDeleteAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+                }
+                else{
+                    usersArrayList.clear();
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                Users user = dataSnapshot.getValue(Users.class);
+                                if (user.isRegistered && user.isScheduled && !user.isAdmin) {
+                                    if((user.firstSchedule.equals(date) && user.firstTime.equals(time)) || (user.secondSchedule.equals(date) && user.secondTime.equals(time))){
+                                        usersArrayList.add(user);
+                                    }
+
+                                }
+
+                            }
+                            usersDeleteAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        this.ibBack = findViewById(R.id.ib_editsched_back);
+        this.ibBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminEditSchedActivity.this, AdminDateSelected.class);
+                intent.putExtra("DateSelected",date);
+                intent.putExtra("TimeSelected", time);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
 
@@ -217,7 +218,7 @@ public class AdminEditSchedActivity extends AppCompatActivity {
 
     }
     private void sendSms(String number,String name){
-        String message = "Good day " + name + "!\n\nYour vaccine schedule has been removed. Sorry for the inconvenience, we will get back to you";
+        String message = "Good day " + name + "!\n\nYour vaccine schedule has been removed.";
 
         try{
             SmsManager smsManager = SmsManager.getDefault();
