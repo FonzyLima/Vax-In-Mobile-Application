@@ -37,7 +37,7 @@ public class AdminSettingsActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 mAuth.signOut();
-                                Intent intent = new Intent(UserSettings.this, MainActivity.class);
+                                Intent intent = new Intent(AdminSettingsActivity.this, MainActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
                                 finish();

@@ -41,8 +41,10 @@
         <activity android:name=".AdminMainActivity" />
         <activity android:name=".AdminDateSelected" />
         <activity android:name=".AdminAddtoSched" />
+        <activity android:name=".AdminEditSchedActivity"></activity>
         <activity android:name=".UserSettings"></activity>
         <activity android:name=".ConfirmDosesActivity"></activity>
+
 
 
         <meta-data

@@ -34,7 +34,7 @@ import java.util.Locale;
 
 public class AdminAddtoSched extends AppCompatActivity {
     private TextView tvDate, tvTime, tvVenue;
-    private Spinner spVenue, spFilter;
+    private Spinner spFilter;
     private Button btnAddtoSched;
 
     private RecyclerView rvAddtoSchedUserRow;
@@ -43,7 +43,7 @@ public class AdminAddtoSched extends AppCompatActivity {
     private UsersAddAdapter usersAddAdapter;
     private ArrayList<Users> usersArrayList;
     private Intent incomingIntent;
-    private String date,secondDate, time, venue;
+    private String date, secondDate, time, venue;
     String addUsersFirstName, addUsersMiddleName, addUsersLastName, addUsersNumber;
     private int i;
 

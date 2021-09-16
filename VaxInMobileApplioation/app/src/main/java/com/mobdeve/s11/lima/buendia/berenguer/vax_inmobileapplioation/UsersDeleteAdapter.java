@@ -1,22 +1,33 @@
 package com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class UsersDeleteAdapter extends RecyclerView.Adapter<UsersDeleteViewHolder> {
 
     private DatabaseReference databaseReference;
     private ArrayList<Users> dataUsers;
+    private HashMap hashMap;
+    public UsersDeleteAdapter(ArrayList<Users> dataUsers){
+        this.dataUsers = dataUsers;
+    }
     /**
      * Called when RecyclerView needs a new {@link ViewHolder} of the given type to represent
      * an item.
@@ -49,7 +60,58 @@ public class UsersDeleteAdapter extends RecyclerView.Adapter<UsersDeleteViewHold
         usersDeleteViewHolder.setDelClick(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                return;
+                new AlertDialog.Builder(usersDeleteViewHolder.itemView.getContext())
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Confirm Logout")
+                        .setMessage("Are you sure you want to remove this persons schedule?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                if(dataUsers.get(usersDeleteViewHolder.getBindingAdapterPosition()).isFirstDose){
+                                    hashMap = new HashMap();
+                                    hashMap.put("secondSchedule","TBA");
+                                    hashMap.put("secondTime","TBA");
+                                    hashMap.put("vacSite","TBA");
+
+                                    databaseReference.child(dataUsers.get(usersDeleteViewHolder.getBindingAdapterPosition()).uID).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener() {
+                                        @Override
+                                        public void onComplete(@NonNull Task task) {
+                                            notifyItemChanged(usersDeleteViewHolder.getBindingAdapterPosition());
+                                        }
+                                    });
+                                }
+                                else{
+                                    hashMap = new HashMap();
+                                    hashMap.put("isScheduled",false);
+                                    hashMap.put("firstSchedule","TBA");
+                                    hashMap.put("firstTime","TBA");
+                                    hashMap.put("secondSchedule","TBA");
+                                    hashMap.put("secondTime","TBA");
+                                    hashMap.put("vacSite","TBA");
+
+                                    databaseReference.child(dataUsers.get(usersDeleteViewHolder.getBindingAdapterPosition()).uID).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener() {
+                                        @Override
+                                        public void onComplete(@NonNull Task task) {
+
+                                            Log.e("HEllo","DELEEEETE");
+                                            notifyItemChanged(usersDeleteViewHolder.getBindingAdapterPosition());
+                                            notifyDataSetChanged();
+//                                            Intent intent = new Intent(view.getContext(),AdminEditSchedActivity.class);
+//                                            view.getContext().startActivity(intent);
+
+                                        }
+                                    });
+
+                                }
+
+
+                            }
+
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
             }
         });
 
@@ -79,7 +141,14 @@ public class UsersDeleteAdapter extends RecyclerView.Adapter<UsersDeleteViewHold
      */
     @Override
     public void onBindViewHolder(@NonNull UsersDeleteViewHolder holder, int position) {
-
+        Users user = dataUsers.get(position);
+        holder.setTvName(user.firstname +" "+ user.lastname);
+        holder.setTvPriority(user.priority);
+        holder.setTvAge(user.bday);
+        holder.setTvBarangay(user.barangay);
+        holder.setTvCity(user.city);
+        holder.setTvSex(user.sex);
+        holder.setIvAvatar(user.sex);
     }
 
     /**
@@ -89,6 +158,6 @@ public class UsersDeleteAdapter extends RecyclerView.Adapter<UsersDeleteViewHold
      */
     @Override
     public int getItemCount() {
-        return 0;
+        return this.dataUsers.size();
     }
 }

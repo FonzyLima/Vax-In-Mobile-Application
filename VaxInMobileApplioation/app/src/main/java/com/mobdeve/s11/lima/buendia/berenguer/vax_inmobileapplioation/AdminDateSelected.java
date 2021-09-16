@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class AdminDateSelected extends AppCompatActivity {
     private TextView tvDateSelected;
     private Spinner spVenue, spTime;
-    private ImageButton ibAddUser;
+    private ImageButton ibAddUser, ibEditUser;
     private RecyclerView rvLocations;
     private RecyclerView.LayoutManager adminMainManager;
 
@@ -46,6 +46,7 @@ public class AdminDateSelected extends AppCompatActivity {
         usersArrayList = new ArrayList<>();
 
         this.ibAddUser = findViewById(R.id.ib_date_addusers);
+        this.ibEditUser = findViewById(R.id.ib_date_editusers);
         this.spVenue = findViewById(R.id.spinner_date_venue);
         this.spTime = findViewById(R.id.spinner_date_time);
         this.tvDateSelected = findViewById(R.id.tv_date_date);
@@ -143,6 +144,21 @@ public class AdminDateSelected extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        this.ibEditUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(AdminDateSelected.this, AdminEditSchedActivity.class);
+                intent.putExtra("DateSelected", date);
+                intent.putExtra("TimeSelected", time);
+                intent.putExtra("SeconDoseDate", secondDate);
+                intent.putExtra("VenueSelected", venue);
+                startActivity(intent);
+            }
+        });
+
+
 
 
     }
