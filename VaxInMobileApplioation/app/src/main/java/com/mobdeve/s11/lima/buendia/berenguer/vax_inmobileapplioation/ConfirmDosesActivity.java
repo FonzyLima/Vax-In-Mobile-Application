@@ -1,10 +1,12 @@
 package com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,6 +26,7 @@ import java.util.HashMap;
 public class ConfirmDosesActivity extends AppCompatActivity {
     private EditText etEmail;
     private Button btnConfirmFirst, btnConfirmSecond;
+    private ImageButton ibBack;
     private Users keyUser;
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app");
@@ -94,6 +97,16 @@ public class ConfirmDosesActivity extends AppCompatActivity {
 
 
 
+            }
+        });
+
+        this.ibBack = findViewById(R.id.ib_confirmdose_back);
+        this.ibBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ConfirmDosesActivity.this,AdminMainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

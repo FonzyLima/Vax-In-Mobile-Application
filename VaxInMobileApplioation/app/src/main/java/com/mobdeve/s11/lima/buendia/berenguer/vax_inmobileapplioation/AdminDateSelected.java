@@ -25,8 +25,8 @@ import java.util.ArrayList;
 
 public class AdminDateSelected extends AppCompatActivity {
     private TextView tvDateSelected;
-    private Spinner spVenue, spTime;
-    private ImageButton ibAddUser, ibEditUser;
+    private Spinner spVenue, spTime, spFilter;
+    private ImageButton ibAddUser, ibEditUser, ibBack;
     private RecyclerView rvLocations;
     private RecyclerView.LayoutManager adminMainManager;
 
@@ -49,6 +49,7 @@ public class AdminDateSelected extends AppCompatActivity {
         this.ibEditUser = findViewById(R.id.ib_date_editusers);
         this.spVenue = findViewById(R.id.spinner_date_venue);
         this.spTime = findViewById(R.id.spinner_date_time);
+        this.spFilter = findViewById(R.id.spinner_date_filter);
         this.tvDateSelected = findViewById(R.id.tv_date_date);
         incomingIntent = getIntent();
         this.date = incomingIntent.getStringExtra("DateSelected");
@@ -107,7 +108,7 @@ public class AdminDateSelected extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                                 Users user = dataSnapshot.getValue(Users.class);
-                                if (user.isRegistered && !user.isScheduled && !user.isAdmin && user.vacSite.equals(venue) && user.firstTime.equals(time) || user.secondTime.equals(time)) {
+                                if (user.isRegistered && !user.isScheduled && !user.isAdmin && (user.firstSchedule.equals(date) || user.secondSchedule.equals(date)) && user.vacSite.equals(venue) && user.firstTime.equals(time) || user.secondTime.equals(time)) {
                                     usersArrayList.add(user);
                                 }
 
@@ -121,6 +122,68 @@ public class AdminDateSelected extends AppCompatActivity {
                         }
                     });
                 }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        this.spFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String chosenFilter = spFilter.getSelectedItem().toString().substring(0,2);
+                if(position != 0){
+                    usersArrayList.clear();
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                Users user = dataSnapshot.getValue(Users.class);
+                                if (user.isRegistered && user.isScheduled && !user.isAdmin && user.priority.equals(chosenFilter)) {
+                                    if((user.firstSchedule.equals(date) && user.firstTime.equals(time)) || (user.secondSchedule.equals(date) && user.secondTime.equals(time))){
+                                        usersArrayList.add(user);
+                                    }
+
+                                }
+
+                            }
+                            usersAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+                }
+                else{
+                    usersArrayList.clear();
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                Users user = dataSnapshot.getValue(Users.class);
+                                if (user.isRegistered && user.isScheduled && !user.isAdmin) {
+                                    if((user.firstSchedule.equals(date) && user.firstTime.equals(time)) || (user.secondSchedule.equals(date) && user.secondTime.equals(time))){
+                                        usersArrayList.add(user);
+                                    }
+
+                                }
+
+                            }
+                            usersAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+
             }
 
             @Override
@@ -155,6 +218,16 @@ public class AdminDateSelected extends AppCompatActivity {
                 intent.putExtra("SeconDoseDate", secondDate);
                 intent.putExtra("VenueSelected", venue);
                 startActivity(intent);
+            }
+        });
+
+        this.ibBack = findViewById(R.id.ib_date_back);
+        this.ibBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminDateSelected.this, AdminMainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

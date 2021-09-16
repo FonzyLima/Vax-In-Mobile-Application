@@ -8,12 +8,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class AdminSettingsActivity extends AppCompatActivity {
 
     private Button btnLogout, btnEditSms;
+    private ImageButton ibBack;
     private FirebaseAuth mAuth;
     private Intent incomingIntent;
 
@@ -56,6 +58,16 @@ public class AdminSettingsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(AdminSettingsActivity.this, EditSMSActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        this.ibBack = findViewById(R.id.ib_adminsettings_back);
+        this.ibBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminSettingsActivity.this,AdminMainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

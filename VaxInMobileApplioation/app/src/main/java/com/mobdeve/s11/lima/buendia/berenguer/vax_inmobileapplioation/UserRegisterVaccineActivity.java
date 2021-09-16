@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
                      etBday, etHousenum, etStreet, etBarangay, etCity;
     private Spinner spPrioGroup;
     private Button btnRegisterVaccine;
+    private ImageButton ibBack;
 
     private FirebaseAuth mAuth;
     private FirebaseUser currUser;
@@ -95,6 +97,16 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 registerUserVaccine();
+            }
+        });
+
+        this.ibBack = findViewById(R.id.ib_rv_back);
+        this.ibBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserRegisterVaccineActivity.this,UserMainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

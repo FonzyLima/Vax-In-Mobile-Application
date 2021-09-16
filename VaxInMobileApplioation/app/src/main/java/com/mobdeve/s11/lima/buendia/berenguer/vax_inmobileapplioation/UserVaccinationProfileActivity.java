@@ -3,8 +3,11 @@ package com.mobdeve.s11.lima.buendia.berenguer.vax_inmobileapplioation;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +23,7 @@ public class UserVaccinationProfileActivity extends AppCompatActivity {
     private TextView tvName, tvBday, tvSex, tvEmail, tvNumber, tvPriority;
     private TextView tvHousenum, tvStreet, tvBarangay, tvCity;
     private TextView tvSite, tvFirstDate, tvFirstTime, tvSecondDate, tvSecondTime;
+    private ImageButton ibBack;
 
     private FirebaseAuth mAuth;
     private FirebaseUser currUser;
@@ -86,6 +90,18 @@ public class UserVaccinationProfileActivity extends AppCompatActivity {
                 Toast.makeText(UserVaccinationProfileActivity.this,"WEWWW",Toast.LENGTH_LONG).show();
             }
         });
+
+        this.ibBack = findViewById(R.id.ib_vaxprof_back);
+        this.ibBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserVaccinationProfileActivity.this, UserMainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
 
 
 
