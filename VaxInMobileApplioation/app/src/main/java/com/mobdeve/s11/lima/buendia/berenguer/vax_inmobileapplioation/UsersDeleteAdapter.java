@@ -60,58 +60,60 @@ public class UsersDeleteAdapter extends RecyclerView.Adapter<UsersDeleteViewHold
         usersDeleteViewHolder.setDelClick(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(usersDeleteViewHolder.itemView.getContext())
-                        .setIcon(android.R.drawable.ic_dialog_alert)
-                        .setTitle("Confirm Logout")
-                        .setMessage("Are you sure you want to remove this persons schedule?")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                                if(dataUsers.get(usersDeleteViewHolder.getBindingAdapterPosition()).isFirstDose){
-                                    hashMap = new HashMap();
-                                    hashMap.put("secondSchedule","TBA");
-                                    hashMap.put("secondTime","TBA");
-                                    hashMap.put("vacSite","TBA");
-
-                                    databaseReference.child(dataUsers.get(usersDeleteViewHolder.getBindingAdapterPosition()).uID).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener() {
-                                        @Override
-                                        public void onComplete(@NonNull Task task) {
-                                            notifyItemChanged(usersDeleteViewHolder.getBindingAdapterPosition());
-                                        }
-                                    });
-                                }
-                                else{
-                                    hashMap = new HashMap();
-                                    hashMap.put("isScheduled",false);
-                                    hashMap.put("firstSchedule","TBA");
-                                    hashMap.put("firstTime","TBA");
-                                    hashMap.put("secondSchedule","TBA");
-                                    hashMap.put("secondTime","TBA");
-                                    hashMap.put("vacSite","TBA");
-
-                                    databaseReference.child(dataUsers.get(usersDeleteViewHolder.getBindingAdapterPosition()).uID).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener() {
-                                        @Override
-                                        public void onComplete(@NonNull Task task) {
-
-                                            Log.e("HEllo","DELEEEETE");
-                                            notifyItemChanged(usersDeleteViewHolder.getBindingAdapterPosition());
-                                            notifyDataSetChanged();
-//                                            Intent intent = new Intent(view.getContext(),AdminEditSchedActivity.class);
-//                                            view.getContext().startActivity(intent);
-
-                                        }
-                                    });
-
-                                }
-
-
-                            }
-
-                        })
-                        .setNegativeButton("No", null)
-                        .show();
+                dataUsers.get(usersDeleteViewHolder.getBindingAdapterPosition()).isSelected = !dataUsers.get(usersDeleteViewHolder.getBindingAdapterPosition()).isSelected;
+                notifyItemChanged(usersDeleteViewHolder.getBindingAdapterPosition());
+//                new AlertDialog.Builder(usersDeleteViewHolder.itemView.getContext())
+//                        .setIcon(android.R.drawable.ic_dialog_alert)
+//                        .setTitle("Confirm Logout")
+//                        .setMessage("Are you sure you want to remove this persons schedule?")
+//                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//
+//                                if(dataUsers.get(usersDeleteViewHolder.getBindingAdapterPosition()).isFirstDose){
+//                                    hashMap = new HashMap();
+//                                    hashMap.put("secondSchedule","TBA");
+//                                    hashMap.put("secondTime","TBA");
+//                                    hashMap.put("vacSite","TBA");
+//
+//                                    databaseReference.child(dataUsers.get(usersDeleteViewHolder.getBindingAdapterPosition()).uID).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener() {
+//                                        @Override
+//                                        public void onComplete(@NonNull Task task) {
+//                                            notifyItemChanged(usersDeleteViewHolder.getBindingAdapterPosition());
+//                                        }
+//                                    });
+//                                }
+//                                else{
+//                                    hashMap = new HashMap();
+//                                    hashMap.put("isScheduled",false);
+//                                    hashMap.put("firstSchedule","TBA");
+//                                    hashMap.put("firstTime","TBA");
+//                                    hashMap.put("secondSchedule","TBA");
+//                                    hashMap.put("secondTime","TBA");
+//                                    hashMap.put("vacSite","TBA");
+//
+//                                    databaseReference.child(dataUsers.get(usersDeleteViewHolder.getBindingAdapterPosition()).uID).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener() {
+//                                        @Override
+//                                        public void onComplete(@NonNull Task task) {
+//
+//                                            Log.e("HEllo","DELEEEETE");
+//                                            notifyItemChanged(usersDeleteViewHolder.getBindingAdapterPosition());
+//                                            notifyDataSetChanged();
+////                                            Intent intent = new Intent(view.getContext(),AdminEditSchedActivity.class);
+////                                            view.getContext().startActivity(intent);
+//
+//                                        }
+//                                    });
+//
+//                                }
+//
+//
+//                            }
+//
+//                        })
+//                        .setNegativeButton("No", null)
+//                        .show();
             }
         });
 
@@ -149,6 +151,7 @@ public class UsersDeleteAdapter extends RecyclerView.Adapter<UsersDeleteViewHold
         holder.setTvCity(user.city);
         holder.setTvSex(user.sex);
         holder.setIvAvatar(user.sex);
+        holder.setIvDelbutton(user.isSelected);
     }
 
     /**

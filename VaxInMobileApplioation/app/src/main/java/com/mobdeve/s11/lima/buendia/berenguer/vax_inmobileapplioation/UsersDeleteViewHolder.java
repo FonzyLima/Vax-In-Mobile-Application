@@ -55,14 +55,14 @@ public class UsersDeleteViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-//    public void setIvDelbutton(boolean added){
-//        if(added){
-//            this.ivDelbutton.setImageResource(R.drawable.row_check);
-//        }
-//        else{
-//            this.ivDelbutton.setImageResource(R.drawable.row_add);
-//        }
-//    }
+    public void setIvDelbutton(boolean added){
+        if(added){
+            this.ivDelbutton.setImageResource(R.drawable.row_check);
+        }
+        else{
+            this.ivDelbutton.setImageResource(R.drawable.row_delete);
+        }
+    }
 
     public void setDelClick(View.OnClickListener click){
         this.ivDelbutton.setOnClickListener(click);

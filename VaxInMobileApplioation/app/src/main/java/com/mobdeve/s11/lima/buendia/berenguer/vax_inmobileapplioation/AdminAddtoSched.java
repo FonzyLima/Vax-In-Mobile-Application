@@ -44,7 +44,7 @@ public class AdminAddtoSched extends AppCompatActivity {
     private ArrayList<Users> usersArrayList;
     private Intent incomingIntent;
     private String date, secondDate, time, venue;
-    String addUsersFirstName, addUsersMiddleName, addUsersLastName, addUsersNumber;
+    private String addUsersFirstName, addUsersMiddleName, addUsersLastName, addUsersNumber;
     private int i;
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app");
@@ -179,9 +179,9 @@ public class AdminAddtoSched extends AppCompatActivity {
                         usersAddAdapter.notifyItemChanged(i);
                     }
                 }
-        };
+            };
 
-    });
+        });
     }
     /*
     Initializes the recycler view with the default user list
