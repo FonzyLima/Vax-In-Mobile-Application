@@ -23,6 +23,18 @@
         app:layout_constraintGuide_begin="379dp"
         app:layout_constraintGuide_percent=".90" />
 
+    <ImageButton
+        android:id="@+id/ib_usersettings_back"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_icon" />
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="428dp"

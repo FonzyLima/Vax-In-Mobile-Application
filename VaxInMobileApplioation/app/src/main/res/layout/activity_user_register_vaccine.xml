@@ -16,6 +16,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ImageButton
+                android:id="@+id/ib_rv_back"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                app:tint="@color/darkblue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/back_icon" />
+
             <TextView
                 android:id="@+id/tv_rv_title"
                 android:layout_width="0dp"
