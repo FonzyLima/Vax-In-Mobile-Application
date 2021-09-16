@@ -62,7 +62,7 @@
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ib_date_back2" />
+                app:layout_constraintTop_toBottomOf="@+id/ib_editsched_back" />
 
             <TextView
                 android:id="@+id/tv_editsched_venue"
