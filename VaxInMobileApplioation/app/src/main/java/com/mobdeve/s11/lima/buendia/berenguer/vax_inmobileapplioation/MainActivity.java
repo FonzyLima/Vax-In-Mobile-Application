@@ -39,11 +39,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        // Initializes components
         this.mAuth = FirebaseAuth.getInstance();
 
         this.etEmail = findViewById(R.id.et_login_email);
         this.etPassword = findViewById(R.id.et_login_password);
         this.tvRegister = findViewById(R.id.tv_login_register);
+
+        // Redirects to register activity
         this.tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,17 +56,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Logs in the user
         this.btnLogin = findViewById(R.id.btn_login_login);
         this.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 userLogin();
-                     
             }
         });
 
     }
 
+    /*
+    Logs in a user if has:
+        1. Valid Log in credentials
+        2. Validated email
+     */
     private void userLogin() {
         String email, username, password;
 

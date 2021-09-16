@@ -10,5 +10,9 @@ public class EditSMSActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_sms);
+
+        /*
+        DECIDED NOT TO DO THIS WILL EXPLAIN IN DEMO
+         */
     }
 }

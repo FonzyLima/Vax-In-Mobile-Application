@@ -15,6 +15,7 @@ public class UsersAddViewHolder extends RecyclerView.ViewHolder {
     public UsersAddViewHolder(@NonNull View itemView) {
         super(itemView);
 
+        // Initizalizes components
         this.tvName = itemView.findViewById(R.id.tv_rowadd_name);
         this.tvAge = itemView.findViewById(R.id.tv_rowadd_age);
         this.tvPriority = itemView.findViewById(R.id.tv_rowadd_group);
@@ -27,6 +28,7 @@ public class UsersAddViewHolder extends RecyclerView.ViewHolder {
 
 
     }
+    // Sets viewholder's data with user
     public void setTvName(String name){
         this.tvName.setText(name);
     }
@@ -46,6 +48,7 @@ public class UsersAddViewHolder extends RecyclerView.ViewHolder {
         this.tvCity.setText(city);
     }
 
+    // Sets Avatar based on user's sex
     public void setIvAvatar(String sex){
 
         if(sex.equals("Male")){
@@ -57,6 +60,7 @@ public class UsersAddViewHolder extends RecyclerView.ViewHolder {
 
     }
 
+    // Changes image depending if user is selected
     public void setIvAddbutton(boolean added){
         if(added){
             this.ivAddbutton.setImageResource(R.drawable.row_check);

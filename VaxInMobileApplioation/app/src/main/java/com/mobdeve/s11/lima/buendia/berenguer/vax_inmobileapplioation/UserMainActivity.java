@@ -33,10 +33,13 @@ public class UserMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_main);
 
+        // Initializes components
         ivProgressCircle = findViewById(R.id.iv_progress_circle);
         ivTracker = findViewById(R.id.iv_tracker);
         btnRegisVaccine = findViewById(R.id.iv_registervax_bg);
         btnProfile = findViewById(R.id.iv_vaxprof_bg);
+
+        // Redirects to UserSettings activity
         btnSettings = findViewById(R.id.iv_settings);
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +48,8 @@ public class UserMainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // Redirects to UserRegisterVaccine activity
         btnRegisVaccine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +59,7 @@ public class UserMainActivity extends AppCompatActivity {
             }
         });
 
+        // Redirects to UserVaccinationProfile activity
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +68,9 @@ public class UserMainActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        Finds data for progress bar to be updated
+         */
         currUser = FirebaseAuth.getInstance().getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("Users");
         currUserID = currUser.getUid();
@@ -70,7 +79,6 @@ public class UserMainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Users userProfile = snapshot.getValue(Users.class);
-                Log.e("HELLO","I AM HEREEE");
 
                 if(userProfile != null){
                     boolean isRegistered = userProfile.isRegistered;

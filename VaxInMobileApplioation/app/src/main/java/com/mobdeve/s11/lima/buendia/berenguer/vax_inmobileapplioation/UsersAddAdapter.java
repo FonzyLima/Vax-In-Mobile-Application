@@ -37,6 +37,7 @@ public class UsersAddAdapter extends RecyclerView.Adapter<UsersAddViewHolder> {
 
         UsersAddViewHolder usersAddViewHolder = new UsersAddViewHolder(view);
 
+        // Makes user a selected one
         usersAddViewHolder.setAddClick(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

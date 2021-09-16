@@ -64,6 +64,7 @@ public class AdminEditSchedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_editsched);
 
+        //Initializing components
         this.usersArrayList = new ArrayList<>();
         this.incomingIntent = getIntent();
 
@@ -77,6 +78,10 @@ public class AdminEditSchedActivity extends AppCompatActivity {
         this.tvVenue.setText(this.venue);
         this.tvTime = findViewById(R.id.tv_editsched_time);
         this.tvTime.setText(this.time);
+
+        /*
+        Deletes all of the schedule of the selected users
+         */
         this.btnDeleteSched = findViewById(R.id.btn_editsched);
         this.btnDeleteSched.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,6 +142,9 @@ public class AdminEditSchedActivity extends AppCompatActivity {
 
         this.initRecyclerview();
 
+        /*
+        Filters the userlist by priority group
+         */
         this.spFilter = findViewById(R.id.spinner_editsched_filter);
         this.spFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -200,6 +208,9 @@ public class AdminEditSchedActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        Returns to AdminDateSelected activity
+         */
         this.ibBack = findViewById(R.id.ib_editsched_back);
         this.ibBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -217,21 +228,10 @@ public class AdminEditSchedActivity extends AppCompatActivity {
 
 
     }
-    private void sendSms(String number,String name){
-        String message = "Good day " + name + "!\n\nYour vaccine schedule has been removed.";
 
-        try{
-            SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(number,null,message, null, null);
-
-            Log.e("TEXT","WORKED TEXT");
-        }
-        catch (Exception e) {
-            Log.e("TEXT","DIDNT WORK");
-        }
-    }
-
-
+    /*
+    Initialized Recyclerview with users who are scheduled on the selected date, time, and venue
+     */
     private void initRecyclerview(){
         this.rvDelSchedRow = findViewById(R.id.rv_editsched_userrow);
         this.adminDelManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);

@@ -42,6 +42,7 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_register_vaccine);
 
+        // Initializes components
         spPrioGroup = findViewById(R.id.spinner_rv_priority);
         etFName = findViewById(R.id.et_rv_firstname);
         etMname = findViewById(R.id.et_rv_middlename);
@@ -56,6 +57,7 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
         etBarangay = findViewById(R.id.et_rv_barangay);
         etCity = findViewById(R.id.et_rv_city);
 
+        // Initializes already given information
         currUser = FirebaseAuth.getInstance().getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("Users");
         currUserID = currUser.getUid();
@@ -91,7 +93,7 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
             }
         });
 
-
+        // Button to register user for vaccination
         btnRegisterVaccine = findViewById(R.id.btn_rv_register);
         btnRegisterVaccine.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +102,7 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
             }
         });
 
+        // Redirects to UserMain activity
         this.ibBack = findViewById(R.id.ib_rv_back);
         this.ibBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +115,9 @@ public class UserRegisterVaccineActivity extends AppCompatActivity {
 
     }
 
+    /*
+    Validates user's inputs and registers once all is validated
+     */
     public void registerUserVaccine(){
         String priority, fName, lName, mName, email, number, bday, sex, houseNum, street, barangay, city;
 

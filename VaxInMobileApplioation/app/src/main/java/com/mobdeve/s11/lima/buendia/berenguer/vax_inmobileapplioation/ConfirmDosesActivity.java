@@ -36,10 +36,14 @@ public class ConfirmDosesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_confirm_doses);
 
+        // Initializes components
         this.etEmail = findViewById(R.id.et_confirmdose_email);
         this.btnConfirmFirst = findViewById(R.id.btn_confirmdose_first);
         this.btnConfirmSecond = findViewById(R.id.btn_confirmdose_second);
 
+        /*
+        Confirms the searched user's dose depending on their current status
+         */
         btnConfirmFirst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,6 +104,9 @@ public class ConfirmDosesActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        Redirects to adminMain activity
+         */
         this.ibBack = findViewById(R.id.ib_confirmdose_back);
         this.ibBack.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -181,6 +181,9 @@ public class AdminAddtoSched extends AppCompatActivity {
 
         });
 
+        /*
+        Returns to DateSelected Activity
+         */
         this.ibBack = findViewById(R.id.ib_addtosched_back);
         this.ibBack.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -43,6 +43,7 @@ public class AdminDateSelected extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_date);
 
+        // Initializing components
         usersArrayList = new ArrayList<>();
 
         this.ibAddUser = findViewById(R.id.ib_date_addusers);
@@ -147,6 +148,9 @@ public class AdminDateSelected extends AppCompatActivity {
             }
         });
 
+        /*
+        Redirects to AdminEditSched activity while passing the selected date, venue, and time.
+         */
         this.ibEditUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -160,6 +164,9 @@ public class AdminDateSelected extends AppCompatActivity {
             }
         });
 
+        /*
+        Returns to AdminMain activity
+         */
         this.ibBack = findViewById(R.id.ib_date_back);
         this.ibBack.setOnClickListener(new View.OnClickListener() {
             @Override

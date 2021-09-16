@@ -16,6 +16,7 @@ public class UsersViewHolder extends RecyclerView.ViewHolder {
     public UsersViewHolder(@NonNull View itemView) {
         super(itemView);
 
+        // Initializes components
         this.tvName = itemView.findViewById(R.id.tv_row_name);
         this.tvPriority = itemView.findViewById(R.id.tv_row_group);
         this.tvSex = itemView.findViewById(R.id.tv_row_gender);
@@ -28,6 +29,7 @@ public class UsersViewHolder extends RecyclerView.ViewHolder {
         this.ll_users = itemView.findViewById(R.id.ll_users);
     }
 
+    // Sets user's information in viewholder
     public void setTvName(String name){
         this.tvName.setText(name);
     }
@@ -47,6 +49,7 @@ public class UsersViewHolder extends RecyclerView.ViewHolder {
         this.tvCity.setText(city);
     }
 
+    // Sets avatar based on user's sex
     public void setIvAvatar(String sex){
 
         if(sex.equals("Male")){

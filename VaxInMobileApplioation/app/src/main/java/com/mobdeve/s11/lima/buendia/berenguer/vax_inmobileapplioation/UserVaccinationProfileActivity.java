@@ -35,6 +35,7 @@ public class UserVaccinationProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_vaccination_profile);
 
+        // Initializes components
         tvName = findViewById(R.id.tv_vaxprof_personalinfo_name_text);
         tvBday = findViewById(R.id.tv_vaxprof_personalinfo_birthday_text);
         tvSex = findViewById(R.id.tv_vaxprof_personalinfo_gender_text);
@@ -53,6 +54,7 @@ public class UserVaccinationProfileActivity extends AppCompatActivity {
         tvSecondDate = findViewById(R.id.tv_vaxprof_vaxsched_date_text2);
         tvSecondTime = findViewById(R.id.tv_vaxprof_vaxsched_time_text2);
 
+        // Sets appropriate data of user
         currUser = FirebaseAuth.getInstance().getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("Users");
         currUserID = currUser.getUid();
@@ -61,7 +63,6 @@ public class UserVaccinationProfileActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Users userProfile = snapshot.getValue(Users.class);
-                Log.e("HELLO","I AM HEREEE");
 
                 if(userProfile != null){
                     tvName.setText(userProfile.firstname + " "+userProfile.middlename+" "+ userProfile.lastname);
@@ -87,10 +88,11 @@ public class UserVaccinationProfileActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(UserVaccinationProfileActivity.this,"WEWWW",Toast.LENGTH_LONG).show();
+                Toast.makeText(UserVaccinationProfileActivity.this,"User not found",Toast.LENGTH_LONG).show();
             }
         });
 
+        // Redirects to UserMain activity
         this.ibBack = findViewById(R.id.ib_vaxprof_back);
         this.ibBack.setOnClickListener(new View.OnClickListener() {
             @Override

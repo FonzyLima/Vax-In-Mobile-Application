@@ -27,9 +27,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
-//    public static final String REGISTER_SHARED_PREFS = "RegisteredSharedPrefs";
-//    public static final String REGISTER_FIRSTNAME_KEY = "RFirstNameKey";
-//    public static final String REGISTER_LASTNAME_KEY = "RLastNameKey";
+
     private FirebaseAuth mAuth;
 
     private EditText etRegisterFirstName, etRegisterMiddleName, etRegisterLastName, etRegisterPhone, etRegisterEmail, etRegisterPassword, etRegisterConfirm, etRegisterBday;
@@ -42,6 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        // Initializes components
         mAuth = FirebaseAuth.getInstance();
 
         etRegisterFirstName = findViewById(R.id.et_register_firstname);
@@ -55,6 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         spinnerSex = findViewById(R.id.spinner_register_sex);
 
+        // Button to validate and register a user
         btnRegisterRegister = findViewById(R.id.btn_register_register);
         btnRegisterRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         });
 
-
+        // Redirects to MainActivity
         tvRegisterLogin = findViewById(R.id.tv_register_login);
         tvRegisterLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +75,9 @@ public class RegisterActivity extends AppCompatActivity {
         });
     };
 
+    /*
+    Validates user's inputs and registers if all valid
+     */
     private void validateRegistration(){
         String firstname, middlename, lastname, phone, email, password, confirmpass, sex, bday;
 
@@ -167,20 +170,5 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    private void sendSms(){
-
-        try{
-            SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage("09176380810",null,"BAKA VAX IN SMS TO", null, null);
-            smsManager.sendTextMessage("09278372235",null,"BAKA VAX IN SMS TO", null, null);
-            smsManager.sendTextMessage("09162477077",null,"BAKA VAX IN SMS TO", null, null);
-
-            Log.e("TEXT","WORKED TEXT");
-        }
-        catch (Exception e) {
-            Log.e("TEXT","DIDNT WORK");
-        }
     }
 }

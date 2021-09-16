@@ -14,6 +14,7 @@ public class UsersDeleteViewHolder extends RecyclerView.ViewHolder {
     public UsersDeleteViewHolder(@NonNull View itemView) {
         super(itemView);
 
+        // Initializes components
         this.tvName = itemView.findViewById(R.id.tv_rowdel_name);
         this.tvPriority = itemView.findViewById(R.id.tv_rowdel_group);
         this.tvSex = itemView.findViewById(R.id.tv_rowdel_gender);
@@ -44,6 +45,7 @@ public class UsersDeleteViewHolder extends RecyclerView.ViewHolder {
         this.tvCity.setText(city);
     }
 
+    // Sets user's avatar based on sex
     public void setIvAvatar(String sex){
 
         if(sex.equals("Male")){
@@ -55,6 +57,7 @@ public class UsersDeleteViewHolder extends RecyclerView.ViewHolder {
 
     }
 
+    // Sets button depending if selected or not
     public void setIvDelbutton(boolean added){
         if(added){
             this.ivDelbutton.setImageResource(R.drawable.row_check);

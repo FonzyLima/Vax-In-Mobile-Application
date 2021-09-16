@@ -42,11 +42,16 @@ public class AdminMainActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_main);
+        // Requests Sending SMS permission from user's device
         requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
 
+        // Initializing components
         this.cvScheduler = findViewById(R.id.cv_scheduler);
         usersArrayList = new ArrayList<>();
 
+        /*
+        Redirects to AdminSettings activity
+         */
         this.ivAdminSettings = findViewById(R.id.ivAdminMainSettings);
         this.ivAdminSettings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +61,9 @@ public class AdminMainActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        Redirects to DateSelected with the selected date
+         */
         this.cvScheduler.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
@@ -67,6 +75,10 @@ public class AdminMainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        /*
+        Redirects to ConfirmDoses activity
+         */
         this.btnConfirmDose = findViewById(R.id.btn_main_confirmdose);
         this.btnConfirmDose.setOnClickListener(new View.OnClickListener() {
             @Override

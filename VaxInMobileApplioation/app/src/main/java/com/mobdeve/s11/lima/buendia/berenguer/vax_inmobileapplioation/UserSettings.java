@@ -27,6 +27,7 @@ public class UserSettings extends AppCompatActivity {
         this.mAuth = FirebaseAuth.getInstance();
         this.btnLogout = findViewById(R.id.btn_usersettings_logout);
 
+        // Logs out the user
         this.btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +54,7 @@ public class UserSettings extends AppCompatActivity {
             }
         });
 
+        // Redirects to UserMain activity
         this.ibBack = findViewById(R.id.ib_usersettings_back);
         this.ibBack.setOnClickListener(new View.OnClickListener() {
             @Override

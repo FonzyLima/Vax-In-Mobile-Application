@@ -26,10 +26,14 @@ public class AdminSettingsActivity extends AppCompatActivity {
 
         this.mAuth = FirebaseAuth.getInstance();
 
+        /*
+        Logs out the logged in user
+         */
         this.btnLogout = findViewById(R.id.btn_adminsettings_logout);
         this.btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Prompts a confirmation for the user
                 new AlertDialog.Builder(AdminSettingsActivity.this)
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setTitle("Confirm Logout")
@@ -52,6 +56,9 @@ public class AdminSettingsActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        Redirects to editSms activity
+         */
         this.btnEditSms = findViewById(R.id.btn_adminsettings_editsms);
         this.btnEditSms.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +68,9 @@ public class AdminSettingsActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        Redirects to AdminMain activity
+         */
         this.ibBack = findViewById(R.id.ib_adminsettings_back);
         this.ibBack.setOnClickListener(new View.OnClickListener() {
             @Override
