@@ -104,7 +104,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/gl_addtosched_right"
         app:layout_constraintStart_toStartOf="@+id/gl_addtosched_left"
-        tools:layout_editor_absoluteY="253dp" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner_addtosched_filter" />
 
     <Spinner
         android:id="@+id/spinner_addtosched_filter"
