@@ -49,7 +49,6 @@ public class AdminDateSelected extends AppCompatActivity {
         this.ibEditUser = findViewById(R.id.ib_date_editusers);
         this.spVenue = findViewById(R.id.spinner_date_venue);
         this.spTime = findViewById(R.id.spinner_date_time);
-        this.spFilter = findViewById(R.id.spinner_date_filter);
         this.tvDateSelected = findViewById(R.id.tv_date_date);
         incomingIntent = getIntent();
         this.date = incomingIntent.getStringExtra("DateSelected");
@@ -130,67 +129,7 @@ public class AdminDateSelected extends AppCompatActivity {
             }
         });
 
-        this.spFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String chosenFilter = spFilter.getSelectedItem().toString().substring(0,2);
-                if(position != 0){
-                    usersArrayList.clear();
-                    databaseReference.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                                Users user = dataSnapshot.getValue(Users.class);
-                                if (user.isRegistered && user.isScheduled && !user.isAdmin && user.priority.equals(chosenFilter)) {
-                                    if((user.firstSchedule.equals(date) && user.firstTime.equals(time)) || (user.secondSchedule.equals(date) && user.secondTime.equals(time))){
-                                        usersArrayList.add(user);
-                                    }
 
-                                }
-
-                            }
-                            usersAdapter.notifyDataSetChanged();
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-
-                }
-                else{
-                    usersArrayList.clear();
-                    databaseReference.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                                Users user = dataSnapshot.getValue(Users.class);
-                                if (user.isRegistered && user.isScheduled && !user.isAdmin) {
-                                    if((user.firstSchedule.equals(date) && user.firstTime.equals(time)) || (user.secondSchedule.equals(date) && user.secondTime.equals(time))){
-                                        usersArrayList.add(user);
-                                    }
-
-                                }
-
-                            }
-                            usersAdapter.notifyDataSetChanged();
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-                }
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
         /*
         Redirects user to AdminAddtoSched activity while passing the selected date, venue, and time.
