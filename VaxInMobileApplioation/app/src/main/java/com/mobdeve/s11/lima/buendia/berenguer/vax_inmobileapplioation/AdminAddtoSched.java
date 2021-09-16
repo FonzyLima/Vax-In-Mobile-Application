@@ -46,7 +46,6 @@ public class AdminAddtoSched extends AppCompatActivity {
     private ArrayList<Users> usersArrayList;
     private Intent incomingIntent;
     private String date, secondDate, time, venue;
-    private String addUsersFirstName, addUsersMiddleName, addUsersLastName, addUsersNumber;
     private int i;
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance("https://vax-in-60807-default-rtdb.asia-southeast1.firebasedatabase.app");
@@ -150,11 +149,6 @@ public class AdminAddtoSched extends AppCompatActivity {
                         hashMap.put("secondSchedule",secondDate);
                         hashMap.put("secondTime",time);
                         hashMap.put("vacSite",venue);
-
-//                        addUsersFirstName = usersArrayList.get(i).firstname;
-//                        addUsersMiddleName = usersArrayList.get(i).middlename;
-//                        addUsersLastName = usersArrayList.get(i).lastname;
-//                        addUsersNumber = usersArrayList.get(i).phone;
 
                         databaseReference.child(usersArrayList.get(i).uID).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener() {
                             @Override
